@@ -1,0 +1,173 @@
+docs_dir: src
+site_dir: site
+
+site_name: Harsh Maheshwari
+site_url: https://harsh-maheshwari.github.io
+site_author: Harsh Maheshwari
+site_description: We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.
+
+repo_url: https://harsh-maheshwari.github.io
+repo_name: Harsh Maheshwari's Home
+
+copyright: Copyright &copy; Since 2022 Harsh Maheshwari
+
+extra_css:
+  - Assets/css/extra.css
+
+extra_javascript:
+  - Assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: black
+      accent: black
+  font:
+    text: Barlow
+    code: 'Cascadia Code PL'
+  icon:
+    logo: material/layers-triple-outline
+  favicon: material/layers-triple-outline
+  # static_templates:
+  #   - 404.html
+
+
+  features:
+#    - announce.dismiss
+#    - header.autohide
+    - content.tabs.link
+    - content.code.annotate
+    - content.tooltips
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.tabs
+#    - navigation.sections
+#    - navigation.expand
+#    - navigation.instant
+#    - navigation.prune
+#    - navigation.tabs.sticky
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+#    - toc.integrate
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      auto_append:
+        - src/Assets/css/inline.css
+  - attr_list
+  - abbr
+  - codehilite
+  - admonition
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: On this page
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  # - mkdocs-simple-hooks:
+      # enabled: !ENV [ENABLE_MKDOCS_SIMPLE_HOOKS, True]
+      # hooks:
+        # on_pre_build: "create_toc:create_readme_files"
+
+  - mknotebooks:
+      execute: false
+      write_markdown: true
+      binder: true
+      binder_service_name: "gh"
+      binder_branch: "master"
+      binder_ui: "lab"
+      enable_default_jupyter_cell_styling: true
+      enable_default_pandas_dataframe_styling: true
+      exporter_kwargs:
+        exclude_input: false
+      tag_remove_configs:
+        remove_cell_tags:
+          - remove_cell
+        remove_all_outputs_tags:
+          - remove_all_output
+        remove_single_output_tags:
+          - remove_single_output
+        remove_input_tags:
+          - remove_input
+  - search
+  - tags
+  - ezlinks
+  # - roamlinks
+  # - minify:
+  #   minify_html: true
+  # - pheasant
+
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target=_blank>feedback form</a>.
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/harsh-maheshwari
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/harsh-maheshwari/
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@harshmaheshwari3110
+
+  cookies:
+    analytics:
+      name: Google Analytics
+      checked: false
