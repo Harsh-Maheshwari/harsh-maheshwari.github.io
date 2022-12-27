@@ -10,6 +10,7 @@ Quick Steps Pipeline as the name suggests is a pretty fast template which can be
 
 According to Data Engineering Principles described in the kedro library, We have divided the complete process into 8 Layers which are given below. Next we will discuss a little bit about each layer and what is supposed to be done in that layer
 
+
 !!! Info "Data Layer Definitions"
 
 	```

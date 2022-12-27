@@ -1,22 +1,16 @@
 ---
 title: SQL Tutorial
 date: 2022-04-19 12:22:08
-description: This blog contains a detailed tutorial on SQL
+description: This tutorial is designed for people who want to answer questions with data using SQL
 tags: 
  - sql
  - data_science
  - bigquery
-icon: material/emoticon-happy
-status: Inprogress
-external_references: 
- - https://count.co/sql-resources
-urls: 
-aliases: 
 ---
 
 This tutorial is designed for people who want to answer questions with data. SQL is used for accessing, cleaning, and analyzing data that's stored in databases. It's very easy to learn, yet it's employed by the world's largest companies to solve incredibly challenging problems.
 
-> Why should I learn SQL when I already know Pandas : [[Big Query Vs Tensorflow Transform]]
+> Why should I learn SQL when I already know Pandas : [[2022-12-15 Big Query Vs Tensorflow Transform]]
 
 ## Generic SQL Select statement
 

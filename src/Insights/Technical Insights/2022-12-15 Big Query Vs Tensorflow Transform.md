@@ -3,10 +3,6 @@ title: Big Query Vs Tensorflow Transform
 date: 2022-12-15 00:00:00
 description: We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.
 ---
-https://datatonic.com/insights/tensorflow-transform-bigquery-data-transformation/
-
-
-
 ## Data Transformation 
 
 In this section we will see what are the google product which we can use for Data Transformation
@@ -43,4 +39,5 @@ In this section we will see what are the google product which we can use for Dat
 - If your data is in stored in BigQuery Tables It would be wise to perform as many transformations as possible in SQL, because of its low cost and very very high speed. 
 - If the transformation are not possible using BigQuery then Switch to TensorFlow Transform 
 
-[Reference](https://cloud.google.com/architecture/data-preprocessing-for-ml-with-tf-transform-pt1#preprocessing_options_summary)
+[Reference1](https://cloud.google.com/architecture/data-preprocessing-for-ml-with-tf-transform-pt1#preprocessing_options_summary)
+[Reference2](https://datatonic.com/insights/tensorflow-transform-bigquery-data-transformation/)

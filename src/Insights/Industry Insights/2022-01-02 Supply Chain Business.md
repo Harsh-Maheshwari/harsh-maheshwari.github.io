@@ -6,11 +6,6 @@ tags:
  - supply_chain_network
  - data_science
  - machine_learning
-icon: material/emoticon-happy
-status: [Todo|Inprogress|Published|Arxived]
-external_references: 
-urls: 
-aliases: 
 ---
 
 #### Supply Chain Planning 

@@ -5,11 +5,6 @@ description:
 tags: 
  - data_structures
  - python
-icon: material/emoticon-happy
-status: [Todo|Inprogress|Published|Arxived]
-external_references: 
-urls: 
-aliases: 
 ---
 
 ## Space Time Complexity

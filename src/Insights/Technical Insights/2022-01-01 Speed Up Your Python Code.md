@@ -1,3 +1,11 @@
+---
+title: Speed Up Your Python Code
+date: 2022-04-19 12:22:08
+description: Speed Up Your Python Code
+tags: 
+ - python
+---
+
 
 ## Learn to use itertools library
 Python’s [Itertools](https://docs.python.org/3/library/itertools.html) is a module that provides various functions that work on iterators to produce complex iterators. This module works as a fast, memory-efficient tool that is used either by themselves or in combination to form iterator algebra.

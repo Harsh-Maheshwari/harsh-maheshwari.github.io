@@ -1,3 +1,9 @@
+---
+title: Losses and Metrics In Machine Learning
+date: 2022-12-16 00:00:00
+description: We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.
+---
+
 ## Classification Metrics
 
 #### Accuracy, Precision, Recall, F1-score

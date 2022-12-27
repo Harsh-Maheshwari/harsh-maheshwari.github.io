@@ -1,3 +1,12 @@
+---
+title: Linear Neural Networks
+date: 2022-01-01 00:00:00
+description: Linear Neural Networks
+tags: 
+ - Machine Learning
+ - Data Science
+---
+
 **Regression** refers to a set of methods for modeling the relationship between one or more independent variables and a dependent variable. 
 
 #### Assumptions in Linear Regression

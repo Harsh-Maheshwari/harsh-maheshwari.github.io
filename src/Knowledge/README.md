@@ -1,12 +1,12 @@
 ---
-title: My Journey
+title: Know Your Guide
 date: 2022-01-01 00:00:00
 description: Learn About the Author 
 tags:
  - Welcome
- - Data Science
- - journey
- - timeline
+ - Data_Science
+ - Journey
+ - Timeline
 ---
 
 <style>

@@ -1,3 +1,9 @@
+---
+title: Product Analytics
+date: 2022-04-23 00:00:00
+description:
+---
+
 ## Why Product Analytics
 Understanding user behavior in a variety of contexts can lead to better-targeted campaigns, increased revenue, and greater user satisfaction and engagement for any product. 
 Every company is tasked with understanding, altering, and predicting user behavior. 

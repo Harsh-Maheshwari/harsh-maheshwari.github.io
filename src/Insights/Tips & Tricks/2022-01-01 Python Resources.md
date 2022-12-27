@@ -25,3 +25,27 @@ tags:
 - [ml-tooling/best-of-python](https://github.com/ml-tooling/best-of-python)
 - [ml-tooling/best-of-ml-python](https://github.com/ml-tooling/best-of-ml-python)
 - [ml-tooling/ml-workspace](https://github.com/ml-tooling/ml-workspace)
+
+
+## [Kedro DVC setup](https://youtu.be/ZTrFpeTCnc0)
+```
+kedro new
+```
+```
+kedro mlflow init
+kedro docker init
+echo "dvc" >> src/requirements.txt
+pip install -r src/requirements.txt
+```
+```
+dvc init
+dvc add data/01_raw
+git rm data/01_raw/.gitkeep
+git add -u
+git commit -m "spec the datasets"
+dvc add data/01_raw
+git add data/01_raw.dvc
+git add data/.gitignore
+git commit -m "Added input data to DVC"
+```
+
