@@ -2,6 +2,7 @@ mkdocs
 mkdocs-material
 mkdocs-material-extensions
 mkdocs-exclude
+mkdocs-gallery
 mkdocs-awesome-pages-plugin
 mknotebooks
 pymdown-extensions

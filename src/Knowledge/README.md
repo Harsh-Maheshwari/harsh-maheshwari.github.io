@@ -24,6 +24,110 @@ I am a soul searching the meaning of life in Science and Religion. I am passiona
 
 I love to watch anime some of my favorites are Dragon Ball Super, Death Note and Vinland Saga. I believe these productions represent the real depth of human psychology, efforts and emotions. My ultimate goal is a healthy and wealthy life for me and people around me. I believe in team work, extreme determination and self-belief as ingredients to success.
 
+## Summaries
+
+### Professional Summaries  
+
+| Employer                                             | Profile                                  | Guide                    | Start - End                   |
+|------------------------------------------------------|------------------------------------------|--------------------------|-------------------------------|
+| Blue Yonder                                          | Data Scientist                           | Karthik Rampelli         | April 2022 - Present          |
+| Australia New Zealand Bank                           | Enterprise Data Automation Engineer      | YS Madhav                | July 2021 - March 2022        |
+| Axis Bank                                            | Business Intelligence Intern             | Santanu Dutta            | April 2020 - June 2020        |
+| School of Computing National University of Singapore | Artificial Intelligence Research Scholar | Professor Bryan Hooi     | November 2019 - December 2019 |
+| Innovation Cell IITB                                 | Computer Vision Lead                     | Professor Dhwanil Shukla | October 2019 - March 2020     |
+| PV Diagnostics                                       | Data Analyst                             | Pranav Maheshwari        | November 2018 - December 2018 |
+
+### Educational Summaries
+
+| Examination       | University                            | Institute                          | Year | Grade                  |
+|-------------------|---------------------------------------|------------------------------------|------|------------------------|
+| Graduation        | Indian Institute of Technology Bombay | Department of Chemical Engineering | 2021 | 7.77/10                |
+| Exchange Semester | Denmark Technical University          | Chemical Engineering               | 2019 | Included in Graduation |
+| Intermediate      | Maharashtra State Board               | Somalwar Junior College            | 2017 | 88.92/100              |
+| Matriculation     | Central Board of Secondary Education  | Gondia Public School               | 2015 | 97.2/100               |
+
+### Courses completed in Graduation
+| Freshman Year Courses                | Sophomore Year Courses                | Junior  Year Courses                 | Final Year Courses                             |
+|--------------------------------------|---------------------------------------|--------------------------------------|------------------------------------------------|
+| Introduction to Chemical Engineering | Introduction to Numerical Analysis    | Introduction to Data Analysis        | Artificial Intelligence in Process Engineering |
+| Calculus                             | Differential Equations II             | Process Control                      | Techno-Commerical Aspects of Fine Chemicals    |
+| Linear Algebra                       | Computational Methods Lab             | Process Modelling and Identification | Process Equipment Selection                    |
+| Differential Equations               | Optimization Models                   | Mass Transfer I                      | Process Economics                              |
+| Engineering Graphics & Drawing       | Introducing to Machine Learning       | Mass Transfer II                     | Design Lab I                                   |
+| Computer Programming and Utilization | Introduction to Transport Phenomena   | Chemical Processes                   | Process Equipment Design                       |
+| Workshop Practice                    | Chemical Engineering Thermodynamics I | Chemical Reaction Engineering        | Chemical Process Design                        |
+| Biology                              | Psychology                            | Solid Mechanics                      | Process Design Project                         |
+| Organic & Inorganic Chemistry        | Technical Thermodynamics *            | Understanding Design                 | Environmental Studies: Science and Engineering |
+| Physical Chemistry                   | Heat Transmission *                   | Economics                            | Environmental Studies: Humanities              |
+| Basics of Electricity & Magnetism    | Fluid Mechanics *                     |                                      |                                                |
+| Quantum Physics and Application      | Materials Technology *                |                                      |                                                |
+|                                      | General Electrical Engineering *      |                                      |                                                |
+|                                      | Chemical Unit Operations *            |
+
+\* Courses completed at Denmark Technical University
+
+
+### Certifications
+1. [Data Science Foundations Data Engineering](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+2. [Eckovation Big Data Certificate](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+3. [Exploratory Data Analysis](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+4. [Getting and Cleaning Data](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+5. [Google Analytics Course Certificate](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+6. [Google Analytics Individual Qualification](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+7. [R Programming](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+8. [The Data Scientist Toolbox](https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates)
+
+
+### Skills Badges
+
+#### Machine Learning & Deep Learning
+![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![mlflow](https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&logo=numpy&logoColor=blue)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white)
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white)
+
+
+#### Databases
+![](https://img.shields.io/badge/mysql-%2300000f.svg?&style=for-the-badge&logo=mysql&logoColor=white)
+![](https://img.shields.io/badge/postgres-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white)
+![](https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white)
+![](https://img.shields.io/badge/sqlite-%2307405e.svg?&style=for-the-badge&logo=sqlite&logoColor=white)
+![Teradata](https://img.shields.io/badge/Teradata-F37440?style=for-the-badge&logo=teradata&logoColor=white)
+
+#### Apache
+![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka)
+![](https://img.shields.io/badge/Apache_Spark-%23E25A1C.svg?&style=for-the-badge&logo=Apache%20Spark&logoColor=white)
+
+#### ML Infrastructure
+![](https://img.shields.io/badge/Kubernetes-%23326CE5.svg?&style=for-the-badge&logo=Kubernetes&logoColor=white)
+![](https://img.shields.io/badge/Docker-%232496ED.svg?&style=for-the-badge&logo=Docker&logoColor=white)
+![](https://img.shields.io/badge/Helm-%23326DF6.svg?&style=for-the-badge&logo=Helm&logoColor=white)
+
+#### CI
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+![CircleCI](https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white)
+
+#### Programming Languages
+![](https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white)
+![](https://img.shields.io/badge/Mathworks-%230076A8.svg?&style=for-the-badge&logo=Mathworks&logoColor=white)
+![](https://img.shields.io/badge/r%20-%23276DC3.svg?&style=for-the-badge&logo=r&logoColor=white) 
+
+#### Web Frameworks
+![](https://img.shields.io/badge/fastapi%20-%23092E20.svg?&style=for-the-badge&logo=fastapi&logoColor=white)
+![](https://img.shields.io/badge/django%20-%23092E20.svg?&style=for-the-badge&logo=django&logoColor=white)
+![](https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white)
+
+#### Front End
+![](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)
+![](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)
+![](https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white)
+
 ## My Journey
 ### The Rough Game of JEE 2015-2017
 
@@ -56,53 +160,7 @@ One of the very interesting thing I learned at ANZ was Agile working and role of
 
 ### The Second Job April 2022 - Present
 
-## Summaries
 
-### Professional Summaries  
-
-| Employer                                             | Profile                                  | Guide                    | Start - End                   |
-|------------------------------------------------------|------------------------------------------|--------------------------|-------------------------------|
-| Blue Yonder                                          | Data Scientist                           | Karthik Rampelli         | April 2022 - Present          |
-| Australia New Zealand Bank                           | Enterprise Data Automation Engineer      | YS Madhav                | July 2021 - March 2022        |
-| Axis Bank                                            | Business Intelligence Intern             | Santanu Dutta            | April 2020 - June 2020        |
-| School of Computing National University of Singapore | Artificial Intelligence Research Scholar | Professor Bryan Hooi     | November 2019 - December 2019 |
-| Innovation Cell IITB                                 | Computer Vision Lead                     | Professor Dhwanil Shukla | October 2019 - March 2020     |
-| PV Diagnostics                                       | Data Analyst                             | Pranav Maheshwari        | November 2018 - December 2018 |
-
-### Education & Skills
-<img src="https://img.shields.io/badge/Indian Institute of Technology Bombay-Bachelors in Chemical Engineering-%231572B6.svg?&style=for-the-badge&logoColor=white"> <img src="https://img.shields.io/badge/Keras-%23D00000.svg?&style=for-the-badge&logo=Keras&logoColor=white" /> <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?&style=for-the-badge&logo=Pytorch&logoColor=white" /> <img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?&style=for-the-badge&logo=TensorFlow&logoColor=white" /> <img src="https://img.shields.io/badge/python-%233776AB.svg?&style=for-the-badge&logo=python&logoColor=white" /> <img src="https://img.shields.io/badge/r%20-%23276DC3.svg?&style=for-the-badge&logo=r&logoColor=white"/> <img src="https://img.shields.io/badge/c++%20-%2300599C.svg?&style=for-the-badge&logo=c%2B%2B&logoColor=white"/> <img src="https://img.shields.io/badge/django%20-%23092E20.svg?&style=for-the-badge&logo=django&logoColor=white"/> <img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/mysql-%2300000f.svg?&style=for-the-badge&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/postgres-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white"/> <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white"/> <img src="https://img.shields.io/badge/sqlite-%2307405e.svg?&style=for-the-badge&logo=sqlite&logoColor=white"/> <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/> <img src="https://img.shields.io/badge/Kubernetes-%23326CE5.svg?&style=for-the-badge&logo=Kubernetes&logoColor=white" />  <img src="https://img.shields.io/badge/Docker-%232496ED.svg?&style=for-the-badge&logo=Docker&logoColor=white" /> <img src="https://img.shields.io/badge/Mathworks-%230076A8.svg?&style=for-the-badge&logo=Mathworks&logoColor=white" /> <img src="https://img.shields.io/badge/Apache Spark-%23E25A1C.svg?&style=for-the-badge&logo=Apache%20Spark&logoColor=white" />
-
-#### Certifications
-<a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Eckovation Big Data Certificate.pdf"> <img src="https://img.shields.io/badge/Eckovation-Big Data Certification-%230077B5.svg?&style=for-the-badge&logoColor=white" /> </a><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/The Data Scientist Toolbox.pdf"> <img src="https://img.shields.io/badge/Johns Hopkins University Coursera-Data Scientist’s Toolbox-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /></a><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/R Programming.pdf"> <img src="https://img.shields.io/badge/Johns Hopkins University Coursera-R Programming-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /> </a> <a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Getting and Cleaning Data.pdf"> <img src="https://img.shields.io/badge/Johns Hopkins University Coursera-Getting & Cleaning Data-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /> </a><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Exploratory Data Analysis.pdf"> <img src="https://img.shields.io/badge/Johns Hopkins University Coursera-Exploratory Data Analysis-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /> </a> <a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Data Science Foundations Data Engineering.pdf"><img src="https://img.shields.io/badge/LinkedIn Learning-Data Science Foundations Data Engineering-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /> </a> <a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Google Analytics Course Certificate.pdf"> <img src="https://img.shields.io/badge/Google-Google Analytics-%232A73CC.svg?&style=for-the-badge&logo=Coursera&logoColor=white" /> </a> <a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/blob/master/docs/Assets/online/Certificates/Google Analytics Individual Qualification.pdf"> <img src="https://img.shields.io/badge/Google-Google Analytics Individual Qualification-%23E37400.svg?&style=for-the-badge&logo=Google%20Analytics&logoColor=white" /> </a> 
-
-#### Educational Summaries
-
-| Examination       | University                            | Institute                          | Year | Grade                  |
-|-------------------|---------------------------------------|------------------------------------|------|------------------------|
-| Graduation        | Indian Institute of Technology Bombay | Department of Chemical Engineering | 2021 | 7.77/10                |
-| Exchange Semester | Denmark Technical University          | Chemical Engineering               | 2019 | Included in Graduation |
-| Intermediate      | Maharashtra State Board               | Somalwar Junior College            | 2017 | 88.92/100              |
-| Matriculation     | Central Board of Secondary Education  | Gondia Public School               | 2015 | 97.2/100               |
-
-#### Courses completed in Graduation
-| Freshman Year Courses                | Sophomore Year Courses                | Junior  Year Courses                 | Final Year Courses                             |
-|--------------------------------------|---------------------------------------|--------------------------------------|------------------------------------------------|
-| Introduction to Chemical Engineering | Introduction to Numerical Analysis    | Introduction to Data Analysis        | Artificial Intelligence in Process Engineering |
-| Calculus                             | Differential Equations II             | Process Control                      | Techno-Commerical Aspects of Fine Chemicals    |
-| Linear Algebra                       | Computational Methods Lab             | Process Modelling and Identification | Process Equipment Selection                    |
-| Differential Equations               | Optimization Models                   | Mass Transfer I                      | Process Economics                              |
-| Engineering Graphics & Drawing       | Introducing to Machine Learning       | Mass Transfer II                     | Design Lab I                                   |
-| Computer Programming and Utilization | Introduction to Transport Phenomena   | Chemical Processes                   | Process Equipment Design                       |
-| Workshop Practice                    | Chemical Engineering Thermodynamics I | Chemical Reaction Engineering        | Chemical Process Design                        |
-| Biology                              | Psychology                            | Solid Mechanics                      | Process Design Project                         |
-| Organic & Inorganic Chemistry        | Technical Thermodynamics *            | Understanding Design                 | Environmental Studies: Science and Engineering |
-| Physical Chemistry                   | Heat Transmission *                   | Economics                            | Environmental Studies: Humanities              |
-| Basics of Electricity & Magnetism    | Fluid Mechanics *                     |                                      |                                                |
-| Quantum Physics and Application      | Materials Technology *                |                                      |                                                |
-|                                      | General Electrical Engineering *      |                                      |                                                |
-|                                      | Chemical Unit Operations *            |
-
-\* Courses completed at Denmark Technical University
 
 
 

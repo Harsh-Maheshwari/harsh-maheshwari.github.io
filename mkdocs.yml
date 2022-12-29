@@ -124,7 +124,7 @@ plugins:
         
   - mknotebooks:
       execute: false
-      write_markdown: true
+      write_markdown: false
       binder: true
       binder_service_name: "gh"
       binder_branch: "master"

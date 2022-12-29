@@ -41,6 +41,7 @@ table {
 
 ## FastPages
 _powered by [fastpages](https://github.com/fastai/fastpages)_
+
 - [Writing Blogs With Jupyter](https://github.com/fastai/fastpages#writing-blog-posts-with-jupyter)
 - [Writing Blogs With Markdown](https://github.com/fastai/fastpages#writing-blog-posts-with-markdown)
 - [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
@@ -81,5 +82,61 @@ https://github.com/Ileriayo/markdown-badges/edit/master/README.md
 	C
 
 ### Collapsable Admonitions 
-??? note annotate "Data Services"
-	- **Data Science for MSMEs** : MSMEs (Micro, Small & Medium Enterprises) are often data-rich but insight-poor, meaning they have data on their customers and operations but aren’t able to easily make sense of it. We are here to solve this using our data analytics services which help businesses gain a better understanding of their data. This services also provide businesses with the necessary industry knowledge to identify how they can improve their business operations.
+??? note annotate "ABS"
+	### Try Heading
+	- **A** : AA
+	
+!!! warning "Automatically generated files"
+    === "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```
+!!! example
+    === "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```
+!!! note annotate "Abraka-dabra"
+	=== "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```
+!!! error
+    === "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```
+!!! info
+    === "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```
+!!! question
+    === "Unordered List"
+        ```markdown
+	        * Sed sagittis eleifend rutrum       
+	    ```
+    === "Ordered List"
+        ```markdown
+	        1. Sed sagittis eleifend rutrum
+        ```

@@ -145,6 +145,7 @@ Analytics specific data model(s) containing a set of features defined against th
 
 > #### Tips on Creating Features
 > It's good to keep in mind your model's own strengths and weaknesses when creating features. Here are some guidelines:
+> 
 > 1. Linear models learn sums and differences naturally, but can't learn anything more complex.
 > 2. Ratios seem to be difficult for most models to learn. Ratio combinations often lead to some easy performance gains.
 > 3. Linear models and neural nets generally do better with normalized features. Neural nets especially need features scaled to values not too far from 0. Tree-based models (like random forests and XGBoost) can sometimes benefit from normalization, but usually much less so.
