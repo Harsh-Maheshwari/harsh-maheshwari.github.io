@@ -4,9 +4,8 @@ date: 2022-01-01 00:00:00
 description: Learn About the Author 
 tags:
  - Welcome
- - Data_Science
+ - Data Science
  - Journey
- - Timeline
 ---
 
 <style>
@@ -14,22 +13,16 @@ tags:
 </style>
 
 
-# Hi there, I'm Harsh Maheshwari  👋
-`(Hindi: हर्ष, Meaning : Joy) | Data Scientist and Automation Freak`
 
-`Last Updated In April 2022`
+## Hi there, I'm Harsh Maheshwari  👋
+	- Hindi: हर्ष  
+	- Meaning: Joy
+	- Identity: Data Scientist and Automation Freak
 
 ### Why I Do What I Do
 I am a soul searching the meaning of life in Science and Religion. I am passionate about work, curious about science, driven by Minimalism, aware of my limits. I love data, enjoy travel, value loyalty, desire independence, appreciate honesty, trust life and above all respect time. I am currently working as a Data Scientist at Blue Yonder. I am also available as a freelance Data Science Consultant and a mentor for upcoming data science aspirants. Lastly, I am still a learner. Every day I push myself to learn something new, whether that be about machine learning, Financial Markets, or miscellaneous facts about the universe and physics. 
 
 I love to watch anime some of my favorites are Dragon Ball Super, Death Note and Vinland Saga. I believe these productions represent the real depth of human psychology, efforts and emotions. My ultimate goal is a healthy and wealthy life for me and people around me. I believe in team work, extreme determination and self-belief as ingredients to success.
-
-### Values : Go-Giver principles
-1. **Value** : Your true worth is determined by how much more you give in value than you take in payment
-2. **Compensation**: Your income is determined by how many people you serve and how well you serve them
-3. **Influence**: Your influence is determined by how abundantly you place other people's interests first
-4. **Authenticity**: The most valuable gift you have to offer is yourself
-5. **Receptivity** : The key to effective giving is to stay open to receiving
 
 ## My Journey
 ### The Rough Game of JEE 2015-2017

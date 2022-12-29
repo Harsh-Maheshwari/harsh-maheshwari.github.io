@@ -3,9 +3,9 @@ title: SQL Tutorial
 date: 2022-04-19 12:22:08
 description: This tutorial is designed for people who want to answer questions with data using SQL
 tags: 
- - sql
- - data_science
- - bigquery
+ - SQL
+ - Data Science
+ - Bigquery
 ---
 
 This tutorial is designed for people who want to answer questions with data. SQL is used for accessing, cleaning, and analyzing data that's stored in databases. It's very easy to learn, yet it's employed by the world's largest companies to solve incredibly challenging problems.

@@ -1,6 +1,6 @@
 ---
 title: Linear Neural Networks
-date: 2022-01-01 00:00:00
+date: 2022-01-02 00:00:00
 description: Linear Neural Networks
 tags: 
  - Machine Learning

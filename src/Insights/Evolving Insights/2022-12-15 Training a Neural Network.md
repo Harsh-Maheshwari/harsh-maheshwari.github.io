@@ -1,17 +1,16 @@
 ---
-title: Important Decisions while Training a Neural Network
+title: Training a Neural Network
 date: 2022-12-15 00:00:00
 description: We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.
 ---
 
-## General Advice
+## General advice
 General advice while training neural networks : 
 
 - Increase complexity one at a time and always provide a hypothesis on how should the model react to the said change in complexity. And verify if the hypothesis is True or False and why.
 - Understand as many paterns as possible from the data using EDA and figure out which pattern is the model able to learn and why
 - Before extensive experimentation get a complete pipeline executed for small data and small model.  The pipeline should be from getting raw data to finalising the techincal and business reports
 - Set up a full training + evaluation + testing skeleton and gain trust in the pipeline execution via a series of experiments with explicit hypotheses, losses and metrics visualizations, model predictions. 
-- Follow Andrej Karpathy's [guide](http://karpathy.github.io/2019/04/25/recipe/) on basic steps
 
 ## Data Decisions
 ### Feature Engineering
@@ -65,15 +64,60 @@ Number of output neurons depends on the type and number of predictions
 
 ### Vanishing and Exploding Gradients
 - **Vanishing Gradients** : when the backprop algorithm propagates the error gradient from the output layer to the first layers, the gradients get smaller and smaller until they're almost negligible when they reach the first layers. This means the weights of the first layers aren't updated significantly at each step.
+
 - **Exploding Gradients** : when the gradients for certain layers get progressively larger, leading to massive weight updates for some layers as opposed to the others
-- **Gradient Clipping** is a great way to reduce gradients from exploding, specially when training RNNs. Simply clip them when they exceed a certain value. Use clipnorm instead of clipvalue, which allows you to keep the direction of your gradient vector consistent. Clipnorm contains any gradients who's l2 norm is greater than a certain threshold.
+
+###  Norms 
+
 - **BatchNorm** simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a regularizer which means we don't need dropout or L2 reg.
+  
 - Using **BatchNorm** lets us use larger learning rates (which result in faster convergence) and lead to huge improvements in most neural networks by reducing the vanishing gradients problem. The only downside is that it slightly increases training times because of the extra computations required at each layer.
+
+###  Early Stopping
 - **Early Stopping** lets you live it up by training a model with more hidden layers, hidden neurons and for more epochs than you need, and just stopping training when performance stops improving consecutively for n epochs. It also saves the best performing model for you.
+
+###  Dropout  
+
 - **Dropout** gives you a massive performance boost (~2% for state-of-the-art models). All dropout does is randomly turn off a percentage of neurons at each layer, at each training step. This makes the network more robust because it can't rely on any particular set of input neurons for making predictions. The knowledge is distributed amongst the whole network. 
+  
 - In **Dropout** around 2^n (where n is the number of neurons in the architecture) slightly-unique neural networks are generated during the  training process, and ensembled together to make predictions.
+  
 - A good **Dropout Rate** is between 0.1 to 0.5; 0.3 for RNNs, and 0.5 for CNNs. Use larger rates for bigger layers. Increasing the dropout rate decreases overfitting, and decreasing the rate is helpful to combat under-fitting.
+  
 - Read [Understanding the Disharmony between Dropout and Batch Normalization by Variance Shift](https://arxiv.org/abs/1801.05134) before using Dropout in conjunction with BatchNorm.
+
+### Gradient Clipping
+- **Gradient Clipping** is a great way to reduce gradients from exploding, specially when training RNNs. Simply clip them when they exceed a certain value. Use clip_by_global_norm  instead of clipnorm or clipvalue, which allows you to keep the direction of your gradient vector consistent.
+  - [tf.clip_by_value](https://www.tensorflow.org/api_docs/python/tf/clip_by_value)  clips each value inside one tensor, regardless of the other values in the tensor. For instance,
+    
+    ```python
+	# Only the values below 0 or above 3 are changed
+	tf.clip_by_value([-1, 2, 10], 0, 3)  -> [0, 2, 3]
+	```
+
+	Consequently, it can change the direction of the tensor, so it should be used if the values in the tensor are decorrelated one from another (which is not the case for gradient clipping), or to avoid zero / infinite values in a tensor that could lead to Nan / infinite values elsewhere (by clipping with a minimum of epsilon=1e-8 and a very big max value for instance).
+
+- [tf.clip_by_norm](https://www.tensorflow.org/api_docs/python/tf/clip_by_norm) rescales one tensor if necessary, so that its L2 norm does not exceed a certain threshold. It's useful typically to avoid exploding gradient on one tensor, because you keep the gradient direction. For instance:
+  ```python
+  # The original L2 norm is 7, which is >5, so the final one is 5
+  tf.clip_by_norm([-2, 3, 6], 5)  -> [-2, 3, 6]*5/7  
+  # The original L2 norm is 7, which is <9, so it is left unchanged
+  tf.clip_by_norm([-2, 3, 6], 9)  -> [-2, 3, 6]  
+  ```
+
+	However, `clip_by_norm` works on only one gradient, so if you use it on all your gradient tensors, you'll unbalance them (some will be rescaled, others not, and not all with the same scale).
+
+- [tf.clip_by_global_norm](https://www.tensorflow.org/api_docs/python/tf/clip_by_global_norm) rescales a list of tensors so that the total norm of the vector of all their norms does not exceed a threshold. The goal is the same as  `clip_by_norm` (avoid exploding gradient, keep the gradient directions), but it works on all the gradients at once rather than on each one separately (that is, all of them are rescaled by the same factor if necessary, or none of them are rescaled). This is better, because the balance between the different gradients is maintained. For instance: 
+  ```python
+  tf.clip_by_global_norm([tf.constant([-2, 3, 6]),tf.constant([-4, 6, 12])] , 14.5)
+  ```
+
+	will rescale both tensors by a factor `14.5/sqrt(49 + 196)`, because the first tensor has a L2 norm of 7, the second one 14, and `sqrt(7^2+ 14^2)>14.5`
+
+	Choosing the max value is the hardest part. You should use the biggest value such that you don't have exploding gradient (whose effects can be `Nan`s or `infinite` values appearing in your tensors, constant loss /accuracy after a few training steps). The value should be bigger for `tf.clip_by_global_norm` than for the others, since the global L2 norm will be mechanically bigger than the other ones due to the number of tensors implied.
+
+!!! note 
+	Note that `tf.clip_by_value` and `tf.clip_by_norm`  work on only one tensor, while `tf.clip_by_global_norm` is used on a list of tensors.
 
 ## Optimisation and Training Decisions
 
@@ -105,29 +149,17 @@ Number of output neurons depends on the type and number of predictions
 ### Number of epochs
 - Start with a large number of epochs and use early stopping to halt training when performance stops improving.
 
-### Loss Function
-#### Mean Squared Error  vs Huber loss 
-- Use MSE if the data does not have significant number of outliers
-- Use Huber loss if the data does have significant number of outliers
-#### Mean Absolute Error 
-- More robust to outliers in data than the Mean Squared Error.
-- Does not scale with magnitude output.  
-#### Mean Absolute Percentage Error 
-- It cannot be used if there are zero or close-to-zero values because there would be a division by zero or values of MAPE tending to infinity.
-- MAPE puts a heavier penalty on negative errors than on positive errors as stated in Accuracy measures: theoretical and practical concerns - [REF](https://www.sciencedirect.com/science/article/abs/pii/0169207093900793) As a consequence, when MAPE is used to compare the accuracy of prediction methods it is biased in that it will systematically select a method whose forecasts are too low. This issue can be overcome by using an accuracy measure based on the logarithm of the accuracy ratio (the ratio of the predicted to actual value). This leads to superior statistical properties and also leads to predictions which can be interpreted in terms of the geometric mean.
-- To overcome these issues with MAPE, there are some other measures proposed in literature:
-	- [Mean Absolute Scaled Error](https://en.wikipedia.org/wiki/Mean_Absolute_Scaled_Error "Mean Absolute Scaled Error") (MASE) , 
-	- [Symmetric Mean Absolute Percentage Error](https://en.wikipedia.org/wiki/Symmetric_Mean_Absolute_Percentage_Error "Symmetric Mean Absolute Percentage Error") (sMAPE)
-	- [Mean Directional Accuracy (MDA)](https://en.wikipedia.org/wiki/Mean_Directional_Accuracy_(MDA) "Mean Directional Accuracy (MDA)")
-	- Mean Arctangent Absolute Percentage Error (MAAPE): MAAPE can be considered a _slope as an angle_, while MAPE is a _slope as a ratio_
+### Losses and Metrics
+Checkout the insight in [Losses and Metrics](/Insights/Evolving Insights/2022-12-16 Losses and Metrics In Machine Learning)
 
-### Classification
-- Cross entropy or Sparse Categorical Cross Entropy
-
-#### References
-
+##### References
+- [Andrej Karpathy's guide](http://karpathy.github.io/2019/04/25/recipe/) 
+- [EfficientNets](https://arxiv.org/pdf/1905.11946.pdf)
+- [A DISCIPLINED APPROACH TO NEURAL NETWORK HYPER-PARAMETERS](https://arxiv.org/pdf/1803.09820.pdf) 
+- [Blog](https://jithinjk.github.io/blog/disciplined_nn_approach.md.html)  
+- [Stochastic Weight Averaging](https://arxiv.org/abs/1803.05407) 
+- [On the difficulty of training Recurrent Neural Networks](https://arxiv.org/pdf/1211.5063.pdf)
 - [kaggle](https://www.kaggle.com/code/lavanyashukla01/training-a-neural-network-start-here/notebook)
-- [EfficientNets](https://arxiv.org/pdf/1905.11946.pdf) to scale your network in an optimal way.
-- Read [A DISCIPLINED APPROACH TO NEURAL NETWORK HYPER-PARAMETERS](https://arxiv.org/pdf/1803.09820.pdf) for an overview of some additional learning rate, batch sizes, momentum and weight decay techniques. - [Blog](https://jithinjk.github.io/blog/disciplined_nn_approach.md.html) 
-- [Stochastic Weight Averaging](https://arxiv.org/abs/1803.05407) shows that better generalization can be achieved by averaging multiple points along the SGD's trajectory, with a cyclical or constant learning rate.
+- [Stack Overflow Discussion](https://stackoverflow.com/questions/44796793/difference-between-tf-clip-by-value-and-tf-clip-by-global-norm-for-rnns-and-how)
 - [Images](https://cs231n.github.io/neural-networks-3/)
+

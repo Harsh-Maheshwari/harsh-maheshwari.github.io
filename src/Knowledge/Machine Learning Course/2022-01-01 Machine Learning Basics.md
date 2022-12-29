@@ -1,5 +1,5 @@
 ---
-title: Machine Learning
+title: Machine Learning Basics
 date: 2022-01-01 00:00:00
 description: Basics of Machine Learning
 tags: 

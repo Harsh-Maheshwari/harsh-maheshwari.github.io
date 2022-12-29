@@ -3,7 +3,7 @@ title: Pop Os Setup
 date: 2022-04-22 23:58:19
 description:
 tags: 
- - pop_os
+ - PoP OS
  - linux
  - tools
 ---

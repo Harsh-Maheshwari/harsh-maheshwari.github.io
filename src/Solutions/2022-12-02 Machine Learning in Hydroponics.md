@@ -1,6 +1,52 @@
-In the modern age, the demands of the agricultural industry have become increasingly intricate and complex, as the industry continues to evolve and adapt to the shifting trends of the market. For the agricultural sector to remain competitive, businesses have had to start looking for creative and innovative solutions to improve the way they manage their practices. One such innovative solution is the use of ‘Hydroponics’. 
+---
+title: Machine Learning in Hydroponics
+date: 2022-12-02 00:00:00
+description:
+tags: 
+ - Hydroponics
+ - Machine Learning
+---
+
+### Introduction
+- Key roblems and issues in the case study
+- Formulate and include a thesis statement, summarizing the outcome of your analysis in 1–2 sentences.
+
+### Background
+In the modern age, the demands of the agricultural industry have become increasingly intricate and complex, as the industry continues to evolve and adapt to the shifting trends of the market. For the agricultural sector to remain competitive, businesses have had to start looking for creative and innovative solutions to improve the way they manage their practices. One such innovative solution is the use of *Hydroponics*. 
 
 Hydroponics is a method of growing plants without the use of soil - instead, they are provided with all the necessary nutrients directly to their roots in a water solution. This allows for greater control over the production of crops, leading to greater yields, quality, and growth. It also has the added benefit of reducing water and nutrient wastage, as what is provided to plants is used efficiently. 
+
+
+- Set the scene: background information, relevant facts, and the most important issues.
+- Demonstrate that you have researched the problems in this case study.
+
+### Evaluation of the Case
+- Outline the various pieces of the case study that you are focusing on.
+- Evaluate these pieces by discussing what is working and what is not working.
+- State why these parts of the case study are or are not working well.
+
+### Proposed Solution/Changes
+    
+- Provide specific and realistic solution(s) or changes needed.
+- Explain why this solution was chosen.
+- Support this solution with solid evidence, such as:
+	- Concepts from class (text readings, discussions, lectures)
+	- Outside research
+	- Personal experience (anecdotes)
+
+### Recommendations    
+-   Determine and discuss specific strategies for accomplishing the proposed solution.
+-   If applicable, recommend further action to resolve some of the issues.
+-   What should be done and who should do it?
+
+## Finalizing the Case
+-   Is your thesis statement clear and direct?
+-   Have you provided solid evidence?
+-   Is any component from the analysis missing?
+
+
+
+
 
 At our company, we understand how hydroponics can benefit the agricultural industry, so we wanted to leverage this technology in the most effective manner with the help of data science and deep learning. We devised a system that would improve the logistics of growing crops with hydroponics, from sales and demand forecasting to replenishing inventory with fresh produce. 
 

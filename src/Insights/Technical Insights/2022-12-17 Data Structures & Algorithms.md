@@ -1,9 +1,9 @@
 ---
 title: Data Structures & Algorithms
-date: 2022-04-23 18:17:36
+date: 2022-12-17 18:17:36
 description:
 tags: 
- - data_structures
+ - Data Structures
  - python
 ---
 

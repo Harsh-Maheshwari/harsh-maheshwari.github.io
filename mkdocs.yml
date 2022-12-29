@@ -42,8 +42,8 @@ theme:
 
 
   features:
-#    - announce.dismiss
-#    - header.autohide
+    # - announce.dismiss
+    # - header.autohide
     - content.tabs.link
     - content.code.annotate
     - content.tooltips
@@ -51,16 +51,16 @@ theme:
     - navigation.top
     - navigation.tracking
     - navigation.tabs
-#    - navigation.sections
-#    - navigation.expand
-#    - navigation.instant
-#    - navigation.prune
-#    - navigation.tabs.sticky
+    # - navigation.sections
+    - navigation.expand
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.tabs.sticky
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
-#    - toc.integrate
+    # - toc.integrate
 
 markdown_extensions:
   - pymdownx.critic
@@ -111,12 +111,17 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+
 plugins:
   # - mkdocs-simple-hooks:
       # enabled: !ENV [ENABLE_MKDOCS_SIMPLE_HOOKS, True]
       # hooks:
         # on_pre_build: "create_toc:create_readme_files"
 
+  # - privacy:
+  #     external_links_attr_map:
+  #       target: _blank
+        
   - mknotebooks:
       execute: false
       write_markdown: true

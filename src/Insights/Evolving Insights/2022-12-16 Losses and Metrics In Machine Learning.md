@@ -18,20 +18,25 @@ description: We are here to help you optimise the way you do business and scale 
 - Fβ score : To consider recall β times as important as precision a modified  
 - that uses a positive real factor β, where β is chosen such that recall is considered β times as important as precision, is:
 
-
-
-
- as a metric can be miss leading if the classes are highly imbalanced. Assume that our target is a binary label - "Cancer" or "No Cancer" in the ratio of 1 : 99. We train a really good machine learning model which has the accuracy of 99 %. Just by seeing accuracy it might seem a good model but actually the model has not learned anything, It is just always predicting  "No Cancer". Hence we should always look at multiple metrics before we decide how good is our model
-
-
 #### ROC
-
 #### AUC
 
 ## Regression Metrics 
 #### MSE
+- Use MSE if the data does not have significant number of outliers
+#### Huber loss 
+- Use Huber loss if the data does have significant number of outliers
 #### MAE
+- More robust to outliers in data than the Mean Squared Error.
+- Does not scale with magnitude output.
 #### MAPE
+- It cannot be used if there are zero or close-to-zero values because there would be a division by zero or values of MAPE tending to infinity.
+- MAPE puts a heavier penalty on negative errors than on positive errors as stated in Accuracy measures: theoretical and practical concerns - [REF](https://www.sciencedirect.com/science/article/abs/pii/0169207093900793) As a consequence, when MAPE is used to compare the accuracy of prediction methods it is biased in that it will systematically select a method whose forecasts are too low. This issue can be overcome by using an accuracy measure based on the logarithm of the accuracy ratio (the ratio of the predicted to actual value). This leads to superior statistical properties and also leads to predictions which can be interpreted in terms of the geometric mean.
+- To overcome these issues with MAPE, there are some other measures proposed in literature:
+	- [Mean Absolute Scaled Error](https://en.wikipedia.org/wiki/Mean_Absolute_Scaled_Error "Mean Absolute Scaled Error") (MASE) , 
+	- [Symmetric Mean Absolute Percentage Error](https://en.wikipedia.org/wiki/Symmetric_Mean_Absolute_Percentage_Error "Symmetric Mean Absolute Percentage Error") (sMAPE)
+	- [Mean Directional Accuracy (MDA)](https://en.wikipedia.org/wiki/Mean_Directional_Accuracy_(MDA) "Mean Directional Accuracy (MDA)")
+	- Mean Arctangent Absolute Percentage Error (MAAPE): MAAPE can be considered a _slope as an angle_, while MAPE is a _slope as a ratio_
 
 ## Ranking Metrics 
 #### MRR

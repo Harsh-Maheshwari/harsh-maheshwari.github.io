@@ -3,8 +3,8 @@ title: Research Material
 date: 2022-01-31 00:00:00
 description:
 tags: 
- - data_science
- - machine_learning
+ - Data Science
+ - Machine Learning
 ---
 
  1. [Language-Image Mixture of Experts](https://arxiv.org/abs/2206.02770)

@@ -67,3 +67,19 @@ _powered by [fastpages](https://github.com/fastai/fastpages)_
 
 ## Markdown Badges
 https://github.com/Ileriayo/markdown-badges/edit/master/README.md
+
+
+## Toggles in Markdown 
+
+===  "Client 1"
+	A
+
+===  "Client 2"
+	B
+
+===  "Client 3"
+	C
+
+### Collapsable Admonitions 
+??? note annotate "Data Services"
+	- **Data Science for MSMEs** : MSMEs (Micro, Small & Medium Enterprises) are often data-rich but insight-poor, meaning they have data on their customers and operations but aren’t able to easily make sense of it. We are here to solve this using our data analytics services which help businesses gain a better understanding of their data. This services also provide businesses with the necessary industry knowledge to identify how they can improve their business operations.

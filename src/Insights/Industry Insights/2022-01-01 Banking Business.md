@@ -4,11 +4,6 @@ date: 2022-04-23 00:23:11
 description:
 tags: 
  - Banking
-icon: material/emoticon-happy
-status: [Todo|Inprogress|Published|Arxived]
-external_references: 
-urls: 
-aliases: 
 ---
 
 ## Understanding Banking as a Business
