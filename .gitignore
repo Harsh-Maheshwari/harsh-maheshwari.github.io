@@ -1,6 +1,8 @@
 src/YetToDo
 src/Personal
 ._*
+data/
+
 .telemetry
 *.swp
 ~*

@@ -60,12 +60,12 @@ Whether you are just starting your journey as a business enthusiast or a well se
 
 
 ### For Knowlege Professionals
-!!! abstract annotate "Insights"	
+???+ abstract annotate "Insights"	
 	- **[Evolving Insights](/Insights/Evolving Insights/2022-12-14 Quick Steps Pipeline/)** : Contains blogs about the topics which we are learning as we grow in experience. It includes some of the best practices that uplifts the quality of product and most importantly are very easy to follow just with some discipline. The efforts are less and results are huge.
 	- **[Industry Insights](/Insights/Industry Insights/2022-01-02 Supply Chain/)** : Contains blogs about the topics which we are learning as we grow our understanding of different domains and industries. It helps understand the overall industry better and keeps us upto date industry specific practice and problems.
 	- **[Technical Insights](/Insights/Technical Insights/2022-01-04 SQL Tutorial/)** : Contains blogs about the introductory topics and tutorials about some of the widely used tools. These insights are written for ethusiasts to undersatand basics and advanced topic, which have existed and will keep having importance in the technical world
 	- **[Tips & Tricks](/Insights/Tips & Tricks/2022-01-02 Jupyter Lab/)** : Contains information which can be used as easy to access  research material and one liners. These can help you with advanced use cases in certain softwares and tools.
-	- [Knowledge](/Knowledge/) : Contains a basic machine learning course which is a bit more structured 
+	- **[Knowledge](/Knowledge/)** : Contains a basic machine learning course which is a bit more structured 
 
 ## Request Consultation
 !!! Success annotate "Lets connect and build something great"
