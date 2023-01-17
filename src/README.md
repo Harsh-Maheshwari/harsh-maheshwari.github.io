@@ -70,8 +70,8 @@ Whether you are just starting your journey as a business enthusiast or a well se
 ???+ example annotate "High Impact Solution"
 	- **[Hydroponics Forecasting](/Applied Solutions/Hydroponics Forecasting/)**
 	- [**Automation Template**](/Assets/video/template_it_screen_recording.webm){:target="_blank"}
-	- **[Cancer Treatment](/Applied  Solutions/Cancer Treatment/)**
-	- **[Quora Question Pairs](/Applied  Solutions/Quora Question Pairs/)**
+	- **[Cancer Treatment](/Applied Solutions/Cancer Treatment/)**
+	- **[Quora Question Pairs](/Applied Solutions/Quora Question Pairs/)**
 
 ### Solutions Catalog
 #### Data Solutions
