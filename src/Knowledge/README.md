@@ -160,9 +160,4 @@ One of the very interesting thing I learned at ANZ was Agile working and role of
 
 ### The Second Job April 2022 - Present
 
-
-
-
-
-
 Curious About The Website!! This is a [mkdocs](https://www.mkdocs.org/) powered completely built using python and markdown, very easy to code and customize.

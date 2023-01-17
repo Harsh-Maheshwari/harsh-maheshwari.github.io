@@ -151,3 +151,17 @@ From predictive analytics to predicting customer demand and even planning shippi
 Conclusion:
 The efficient operation of a company’s supply chain is essential for the company to thrive in today’s global economy. By employing Machine Learning technologies, companies can improve processes and integrate analytics to reduce costs and increase the efficiency of their supply chain operations. Through automation technology, companies can reduce their inventory management efforts, enhance customer feedback processes, and ultimately increase the accuracy of their supply chain operations. With Machine Learning, companies can be better equipped to meet customer needs, save time and money, and increase their ROI.
 
+
+| a.  | Inventory planning                          |
+|-----|---------------------------------------------|
+| b.  | Sales Forecasting                           |
+| c.  | Price Forecasting (Change: When & How Much) |
+| d.  | Replenishment Forecasting                   |
+| e.  | Return Forecasting                          |
+| f.  | Stock Out Calculation                       |
+| g.  | Markdown Forecasting                        |
+| h.  | Estimated Delivery Date and Location        |
+| i.  | Processing Time Estimation                  |
+| ii. | Transit Time Estimation                     |
+| i.  | Availability                                |
+| j.  | Safety Stock                                |

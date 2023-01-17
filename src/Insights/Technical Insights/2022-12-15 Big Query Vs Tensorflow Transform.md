@@ -39,5 +39,5 @@ In this section we will see what are the google product which we can use for Dat
 - If your data is in stored in BigQuery Tables It would be wise to perform as many transformations as possible in SQL, because of its low cost and very very high speed. 
 - If the transformation are not possible using BigQuery then Switch to TensorFlow Transform 
 
-[Reference1](https://cloud.google.com/architecture/data-preprocessing-for-ml-with-tf-transform-pt1#preprocessing_options_summary)
-[Reference2](https://datatonic.com/insights/tensorflow-transform-bigquery-data-transformation/)
+- [Reference1](https://cloud.google.com/architecture/data-preprocessing-for-ml-with-tf-transform-pt1#preprocessing_options_summary)
+- [Reference2](https://datatonic.com/insights/tensorflow-transform-bigquery-data-transformation/)

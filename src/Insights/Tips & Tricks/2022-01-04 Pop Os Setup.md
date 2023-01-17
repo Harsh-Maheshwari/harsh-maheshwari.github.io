@@ -7,7 +7,6 @@ tags:
  - linux
  - tools
 ---
-# [[2022-01-04 Pop Os Setup]]
 
 ## Remove top bar 
 https://ubuntuhandbook.org/index.php/2020/08/top-panel-auto-hide-ubuntu-20-04/

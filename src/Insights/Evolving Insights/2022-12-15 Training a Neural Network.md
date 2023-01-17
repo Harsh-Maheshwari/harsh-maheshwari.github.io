@@ -58,20 +58,30 @@ Number of output neurons depends on the type and number of predictions
 	- _scale_\*sigmoid : For predictions in range  0 and _scale_
 
 ### Weight Initialization 
+- Weights should be small (not to small) (Normalisation)
+- They should have good variance 
+#### Problem of Symmetry
+- If all weights are zero then for any given nueron is $w^Tx$  which would be 0, and all the weigths will have same gradient updates
+- If all weights are one then for any given nueron is $w^Tx$  which would be $x$, and all the weigths will have same gradient updates
+### Solution is Asymmetry  
+- With different initialisation different models lear different things about the data
 - When using softmax, logistic, or tanh, use [Glorot initialization](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) Mostly default used in Tensorflow 
 - When using ReLU or leaky RELU, use [He initialization](https://arxiv.org/pdf/1502.01852.pdf)
 - When using SELU or ELU, use [LeCun initialization](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf)
 
 ### Vanishing and Exploding Gradients
 - **Vanishing Gradients** : when the backprop algorithm propagates the error gradient from the output layer to the first layers, the gradients get smaller and smaller until they're almost negligible when they reach the first layers. This means the weights of the first layers aren't updated significantly at each step.
-
 - **Exploding Gradients** : when the gradients for certain layers get progressively larger, leading to massive weight updates for some layers as opposed to the others
+
+!!! question 
+	Where in the network would you first see the vanishing gradient or exploding gradients problem? Ans: Initial layers of the network
 
 ###  Norms 
 
-- **BatchNorm** simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a regularizer which means we don't need dropout or L2 reg.
-  
+- A small change in input mini batch distribution can be noticed as a very large change in deeper layers (due to chain of change formulation). This phenomenon / problem is called **internal covariance shift**. BatchNorm solves the issue of internal covariance shift. 
+- **BatchNorm**  simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a weak regularizer. 
 - Using **BatchNorm** lets us use larger learning rates (which result in faster convergence) and lead to huge improvements in most neural networks by reducing the vanishing gradients problem. The only downside is that it slightly increases training times because of the extra computations required at each layer.
+- [Reference](https://arxiv.org/pdf/1502.03167v3.pdf) 
 
 ###  Early Stopping
 - **Early Stopping** lets you live it up by training a model with more hidden layers, hidden neurons and for more epochs than you need, and just stopping training when performance stops improving consecutively for n epochs. It also saves the best performing model for you.
@@ -120,18 +130,28 @@ Number of output neurons depends on the type and number of predictions
 	Note that `tf.clip_by_value` and `tf.clip_by_norm`  work on only one tensor, while `tf.clip_by_global_norm` is used on a list of tensors.
 
 ## Optimisation and Training Decisions
+- Follow the advices in https://deci.ai/blog/tricks-training-neural-networks/
 
 ### Optimizers
-- Adam/Nadam are usually good starting points, and tend to be quite forgiving to a bad learning late and other non-optimal hyperparameters.
+- [Blog : SebastianRuder optimization for Deep Learning](https://ruder.io/optimizing-gradient-descent/) | [Lecture Notes](https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning)
+- Adagrad's main benefits is that it eliminates the need to manually tune the learning rate 
+- [Adaptive Moments Estimaion : Adam](https://paperswithcode.com/method/adam)/[Nadam](https://paperswithcode.com/method/nadam) are usually good starting points, and tend to be quite forgiving to a bad learning late and other non-optimal hyperparameters.
 - Use Stochastic Gradient Descent if you care deeply about quality of convergence and if time is not of the essence.
-- If you care about time-to-convergence and a point close to optimal convergence will suffice, experiment with Adam, Nadam, RMSProp, and Adamax optimizers
+- If you care about time-to-convergence and a point close to optimal convergence will suffice, experiment with [Adam](https://paperswithcode.com/method/adam), Nadam, RMSProp, and Adamax optimizers
+- [Batch vs Mini-batch vs Stochastic Gradient Descent](https://medium.datadriveninvestor.com/batch-vs-mini-batch-vs-stochastic-gradient-descent-with-code-examples-cd8232174e14)
+![gradient_descent_vs_stochastic_vs_mini_batch](/Assets/img/gradient_descent_vs_stochastic_vs_mini_batch.png)
+- SGD can get stuck in a Saddle point,  Moment based indicators generally do better! [Reference](https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html)
+- ![](/Assets/img/optimisers_gif.gif)
+
+!!! question
+	- Gradients of loss with respect to weights can be 0 for 3 points : Minima, Maxima and Saddle point! How do you know where you are? 
+	- Why do sparse features need a different learning rate from dense features? And how Adagrad, Adadelta, RMSProp helps solve this? [Reference](https://www.youtube.com/watch?v=c86mqhdmfL0&ab_channel=AppliedAICourse)
 
 
 ### Batch Size
 - Large batch sizes can be great because they can harness the power of GPUs to process more training instances per time. [OpenAI has found](https://openai.com/blog/science-of-ai/) larger batch size (of tens of thousands for image-classification and language modeling, and of millions in the case of RL agents) serve well for scaling and parallelizability.
 - According to [this paper](https://arxiv.org/abs/1804.07612) by Masters and Luschi, the advantage gained from increased parallelism from running large batches is offset by the increased performance generalization and smaller memory footprint achieved by smaller batches. They show that increased batch sizes reduce the acceptable range of learning rates that provide stable convergence. Their takeaway is that smaller is, in-fact, better; and that the best performance is obtained by mini-batch sizes between 2 and 32.
-- If you're not operating at massive scales, start with lower batch sizes and slowly increasing the size and monitoring performance to determine the best fit.
-- [Batch vs Mini-batch vs Stochastic Gradient Descent](https://medium.datadriveninvestor.com/batch-vs-mini-batch-vs-stochastic-gradient-descent-with-code-examples-cd8232174e14) 
+- If you're not operating at massive scales, start with lower batch sizes and slowly increasing the size and monitoring performance to determine the best fit. 
 
 ### Learning Rate And Momentum
 - Use a constant medium learning rate until you've trained all other hyper-parameters and implement learning rate decay scheduling at the end.
@@ -152,7 +172,7 @@ Number of output neurons depends on the type and number of predictions
 ### Losses and Metrics
 Checkout the insight in [Losses and Metrics](/Insights/Evolving Insights/2022-12-16 Losses and Metrics In Machine Learning)
 
-##### References
+##### References and Good Articles
 - [Andrej Karpathy's guide](http://karpathy.github.io/2019/04/25/recipe/) 
 - [EfficientNets](https://arxiv.org/pdf/1905.11946.pdf)
 - [A DISCIPLINED APPROACH TO NEURAL NETWORK HYPER-PARAMETERS](https://arxiv.org/pdf/1803.09820.pdf) 
@@ -162,4 +182,5 @@ Checkout the insight in [Losses and Metrics](/Insights/Evolving Insights/2022-12
 - [kaggle](https://www.kaggle.com/code/lavanyashukla01/training-a-neural-network-start-here/notebook)
 - [Stack Overflow Discussion](https://stackoverflow.com/questions/44796793/difference-between-tf-clip-by-value-and-tf-clip-by-global-norm-for-rnns-and-how)
 - [Images](https://cs231n.github.io/neural-networks-3/)
+- [Gradient Descent](https://towardsdatascience.com/how-do-we-train-neural-networks-edd985562b73) | [Denoise gradients using Exponential smoothing : Stochastic Gradient Descent with momentum](https://towardsdatascience.com/stochastic-gradient-descent-with-momentum-a84097641a5d)
 

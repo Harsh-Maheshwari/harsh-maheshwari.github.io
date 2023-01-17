@@ -63,6 +63,15 @@ theme:
     # - toc.integrate
 
 markdown_extensions:
+  - pymdownx.extra
+  - admonition         # Adds boxes for Notes, Warnings, etc.
+  - attr_list          # Adds attribute lists to generated HTML
+  - codehilite         # Syntax coloring for code blocks
+  - def_list           # Adds syntax for definition lists
+  - sane_lists         # Enables list items with multiple paragraphs
+  - toc: # Builds a table of contents 
+      permalink: true
+      title: On this page
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -73,18 +82,11 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - src/Assets/css/inline.css
-  - attr_list
   - abbr
-  - codehilite
-  - admonition
-  - def_list
   - footnotes
   - meta
   - md_in_html
   - tables
-  - toc:
-      permalink: true
-      title: On this page
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -113,6 +115,24 @@ markdown_extensions:
 
 
 plugins:
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+  - exclude:
+      glob:
+        - Applied Solutions/data/*
+        - Applied Solutions/utils/*
+        # - Applied Solutions/*
   # - mkdocs-simple-hooks:
       # enabled: !ENV [ENABLE_MKDOCS_SIMPLE_HOOKS, True]
       # hooks:
@@ -125,7 +145,7 @@ plugins:
   - mknotebooks:
       execute: false
       write_markdown: false
-      binder: true
+      binder: false
       binder_service_name: "gh"
       binder_branch: "master"
       binder_ui: "lab"
@@ -145,30 +165,43 @@ plugins:
   - search
   - tags
   - ezlinks
+
   # - roamlinks
   # - minify:
   #   minify_html: true
   # - pheasant
 
+
 extra:
   generator: false
-  analytics:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our website and whether users find what they're searching for. With your consent, you're helping us to make our website better.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: true
+    actions:
+      - accept
+      - manage 
+  analytics: 
     provider: google
-    property: !ENV GOOGLE_ANALYTICS_KEY
+    property: G-GHECGDQXX8
     feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >-
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target=_blank>feedback form</a>.
+        title: Was this page helpful?
+        ratings:
+          - icon: material/emoticon-happy-outline
+            name: This page was helpful
+            data: 1
+            note: >-
+              Thanks for your feedback!
+          - icon: material/emoticon-sad-outline
+            name: This page could be improved
+            data: 0
+            note: >- 
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
 
   social:
     - icon: fontawesome/brands/github

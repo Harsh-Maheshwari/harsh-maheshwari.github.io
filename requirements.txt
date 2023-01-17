@@ -1,6 +1,7 @@
 mkdocs
 mkdocs-material
 mkdocs-material-extensions
+mkdocs-glightbox
 mkdocs-exclude
 mkdocs-gallery
 mkdocs-awesome-pages-plugin
@@ -12,3 +13,7 @@ mkdocs-jupyter
 mkdocs-roamlinks-plugin
 mkdocs-ezlinks-plugin
 mkdocs-simple-hooks
+mkdocs-git-revision-date-localized-plugin
+jieba
+pillow
+cairosvg
