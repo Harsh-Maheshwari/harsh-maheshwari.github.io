@@ -1,0 +1,1259 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Learn About the Author" name="description"/>
+<meta content="Harsh Maheshwari" name="author"/>
+<link href="https://harsh-maheshwari.github.io/Knowledge/" rel="canonical"/>
+<link href="../material/layers-triple-outline" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Know Your Guide - Decide With ML</title>
+<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CCascadia+Code+PL:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Barlow";--md-code-font:"Cascadia Code PL"}</style>
+<link href="../Assets/css/extra.css" rel="stylesheet"/>
+<link href="../css/ansi-colours.css" rel="stylesheet"/>
+<link href="../css/jupyter-cells.css" rel="stylesheet"/>
+<link href="../css/pandas-dataframe.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-GHECGDQXX8"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-GHECGDQXX8",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-GHECGDQXX8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="black" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#hi-there-im-harsh-maheshwari">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Decide With ML" class="md-header__button md-logo" data-md-component="logo" href=".." title="Decide With ML">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26L12 16.54M12 14 3 7l9-7 9 7-9 7m0-11.47L6.26 7 12 11.47 17.74 7 12 2.53m0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26L12 21.47"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Decide With ML
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Know Your Guide
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-hidden="true" class="md-option" data-md-color-accent="black" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://harsh-maheshwari.github.io" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="..">
+      Decide With ML
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../Applied%20Solutions/Cancer%20Treatment/">
+        Applied Solutions
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../Insights/Evolving%20Insights/2022-12-14%20Quick%20Steps%20Pipeline/">
+        Insights
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+        Knowledge
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../Personal/">
+        Personal
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../YetToDo/">
+        YetToDo
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Decide With ML" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Decide With ML">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26L12 16.54M12 14 3 7l9-7 9 7-9 7m0-11.47L6.26 7 12 11.47 17.74 7 12 2.53m0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26L12 21.47"></path></svg>
+</a>
+    Decide With ML
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://harsh-maheshwari.github.io" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Decide With ML
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Applied Solutions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Applied Solutions" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Applied Solutions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Cancer%20Treatment/">
+        Cancer Treatment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Hydroponics%20Forecasting/">
+        Hydroponics Forecasting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Quora%20Question%20Pairs/">
+        Quora Question Pairs
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
+          Analysis and Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Analysis and Guides" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Analysis and Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Analysis%20and%20Guides/Differentiation%20in%20TensorFlow/">
+        Differentiation in TensorFlow
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Analysis%20and%20Guides/Dimensionality%20Reduction/">
+        Dimensionality Reduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Applied%20Solutions/Analysis%20and%20Guides/Scaling%20in%20Machine%20Learning/">
+        Scaling in Machine Learning
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Insights
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Insights" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Insights
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1">
+          Evolving Insights
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Evolving Insights" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+          Evolving Insights
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2022-12-14%20Quick%20Steps%20Pipeline/">
+        Quick Steps Pipeline
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2022-12-15%20Training%20a%20Neural%20Network/">
+        Training a Neural Network
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2022-12-16%20Losses%20and%20Metrics%20In%20Machine%20Learning/">
+        Losses and Metrics In Machine Learning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2022-12-28%20Data%20Modeling/">
+        Data Modeling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2022-12-29%20Be%20up%20to%20date%20in%20the%20Data%20Industry/">
+        Be up to date in the Data Industry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2023-01-01%20%20Enhanced%20decision%20making%20using%20Probability/">
+        Enhanced decision making using Probability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/2023-01-11%20Learn%20One%20Thing%20At%20A%20Time/">
+        Learn One Thing At A Time
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/Explainable%20AI/">
+        Explainable AI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Evolving%20Insights/Overfitting%2C%20Underfitting%2C%20Variance%2C%20Bias%20and%20Generalisation/">
+        Overfitting, Underfitting, Variance, Bias and Generalisation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2">
+          Industry Insights
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Industry Insights" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          Industry Insights
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Industry%20Insights/2022-01-01%20Banking%20Business/">
+        Banking Business
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Industry%20Insights/2022-01-02%20Supply%20Chain/">
+        Supply Chain
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Industry%20Insights/2022-01-03%20Product%20Analytics/">
+        Product Analytics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Industry%20Insights/2022-01-04%20Export%20Import/">
+        Export Import
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3">
+          Technical Insights
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Technical Insights" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Technical Insights
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Technical%20Insights/2022-01-04%20SQL%20Tutorial/">
+        SQL Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Technical%20Insights/2022-12-15%20Big%20Query%20Vs%20Tensorflow%20Transform/">
+        Big Query Vs Tensorflow Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Technical%20Insights/2023-01-12%20Data%20Science%20Lifecycle/">
+        Data Science Lifecycle
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_4" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4">
+          Tips &amp; Tricks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tips &amp; Tricks" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          Tips &amp; Tricks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-02%20Jupyter%20Lab/">
+        Jupyter Lab
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-03%20Obsidian%20Tricks/">
+        Obsidian Tricks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-03%20Python%20Resources/">
+        Good Python Libraries
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-03%20Research%20Material/">
+        Research Material
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-04%20Pop%20Os%20Setup/">
+        Pop Os Setup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Insights/Tips%20%26%20Tricks/2022-01-05%20Markdown%20Tricks/">
+        Markdown Tricks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">Knowledge</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Knowledge" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Knowledge
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+          Machine Learning
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Machine Learning" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Machine Learning
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2022-01-01%20Machine%20Learning%20Basics/">
+        Machine Learning Basics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2022-01-02%20Linear%20Neural%20Networks/">
+        Linear Neural Networks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2022-05-01%20Feature%20Engineering/">
+        Feature Engineering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2022-12-31%20Support%20Vector%20Machines/">
+        Support Vector Machines
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2023-01-01%20Decision%20Trees/">
+        Decision Trees
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2023-01-02%20Ensembles/">
+        Ensembles
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2023-01-03%20Clustering/">
+        Clustering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/2023-01-11%20Useful%20Concepts%20in%20Machine%20Learning/">
+        Useful Concepts in Machine Learning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Machine%20Learning/AutoEncoders/">
+        AutoEncoders
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3">
+          Programming
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Programming" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Programming
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="Programming/2022-12-16%20Speed%20Up%20Your%20Python%20Code/">
+        Speed Up Your Python Code
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Programming/2022-12-17%20Data%20Structures%20%26%20Algorithms/">
+        Data Structures &amp; Algorithms
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../Personal/">Personal</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Personal" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Personal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+          Export Import
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Export Import" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Export Import
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Personal/Export%20Import/Steps%20to%20establish%20an%20Import%20Export%20Business%20in%20India/">
+        Steps to establish an Import Export Business in India
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3">
+          Trading
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Trading" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Trading
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Personal/Trading/Detailed%20Trader/">
+        Detailed Trader
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Personal/Trading/Notes/">
+        Notes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Personal/Trading/Quantitative%20Trading/">
+        Quantitative Trading
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../YetToDo/">YetToDo</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="YetToDo" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          YetToDo
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/0000%20Client%20Cards/">
+        0000 Client Cards
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Applied%20Ai%20Remaining%20Videos/">
+        Applied Ai Remaining Videos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Computer%20Vision/">
+        Computer Vision
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Data%20Engineering/">
+        Data Engineering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Digital%20Marketing%20Solutions/">
+        Digital Marketing Solutions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Export%20Import%20Solutions/">
+        Export Import Solutions
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6_8" id="__nav_6_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_8">
+          Pipeline
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Pipeline" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_8">
+<span class="md-nav__icon md-icon"></span>
+          Pipeline
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Pipeline/2022-01-01%20TFX%20Introduction/">
+        TFX Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Pipeline/2022-01-02%20TFX%20Standard%20Components/">
+        TFX Standard Components
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../YetToDo/Pipeline/2022-01-03%20TFX%20%20Custom%20Components/">
+        TFX Custom Components
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="On this page" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hi-there-im-harsh-maheshwari">
+    Hi there, I'm Harsh Maheshwari  👋
+  </a>
+<nav aria-label="Hi there, I'm Harsh Maheshwari  👋" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-i-do-what-i-do">
+    Why I Do What I Do
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summaries">
+    Summaries
+  </a>
+<nav aria-label="Summaries" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#professional-summaries">
+    Professional Summaries
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#educational-summaries">
+    Educational Summaries
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#courses-completed-in-graduation">
+    Courses completed in Graduation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#certifications">
+    Certifications
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#skills-badges">
+    Skills Badges
+  </a>
+<nav aria-label="Skills Badges" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#machine-learning-deep-learning">
+    Machine Learning &amp; Deep Learning
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#databases">
+    Databases
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apache">
+    Apache
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ml-infrastructure">
+    ML Infrastructure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ci">
+    CI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programming-languages">
+    Programming Languages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#web-frameworks">
+    Web Frameworks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#front-end">
+    Front End
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#my-journey">
+    My Journey
+  </a>
+<nav aria-label="My Journey" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-rough-game-of-jee-2015-2017">
+    The Rough Game of JEE 2015-2017
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2017-june-2018-june">
+    2017 June - 2018 June
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2018-june-2018-december">
+    2018 June - 2018 December
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-international-year-of-2019">
+    The International year of 2019
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2020-the-year-of-coming-home-the-time-of-sars-cov-2">
+    2020 The Year of coming Home - The Time of SARS-CoV-2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-last-semester-jan-2021-may-2021">
+    The Last Semester Jan 2021 - May 2021
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-first-job-june-2021-march-2022">
+    The First Job June 2021 - March 2022
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-second-job-april-2022-present">
+    The Second Job April 2022 - Present
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<nav class="md-tags">
+<span class="md-tag">Welcome</span>
+<span class="md-tag">Data Science</span>
+<span class="md-tag">Journey</span>
+</nav>
+<h1>Know Your Guide</h1>
+<style>
+    img {margin: 1em 0.5em 1em 0.5em;}
+</style>
+<h2 id="hi-there-im-harsh-maheshwari">Hi there, I'm Harsh Maheshwari  👋<a class="headerlink" href="#hi-there-im-harsh-maheshwari" title="Permanent link">¶</a></h2>
+<div class="codehilite"><pre><span></span><code>- Hindi: हर्ष  
+- Meaning: Joy
+- Identity: Data Scientist and Automation Freak
+</code></pre></div>
+<h3 id="why-i-do-what-i-do">Why I Do What I Do<a class="headerlink" href="#why-i-do-what-i-do" title="Permanent link">¶</a></h3>
+<p>I am a soul searching the meaning of life in Science and Religion. I am passionate about work, curious about science, driven by Minimalism, aware of my limits. I love data, enjoy travel, value loyalty, desire independence, appreciate honesty, trust life and above all respect time. I am currently working as a Data Scientist at Blue Yonder. I am also available as a freelance Data Science Consultant and a mentor for upcoming data science aspirants. Lastly, I am still a learner. Every day I push myself to learn something new, whether that be about machine learning, Financial Markets, or miscellaneous facts about the universe and physics. </p>
+<p>I love to watch anime some of my favorites are Dragon Ball Super, Death Note and Vinland Saga. I believe these productions represent the real depth of human psychology, efforts and emotions. My ultimate goal is a healthy and wealthy life for me and people around me. I believe in team work, extreme determination and self-belief as ingredients to success.</p>
+<h2 id="summaries">Summaries<a class="headerlink" href="#summaries" title="Permanent link">¶</a></h2>
+<h3 id="professional-summaries">Professional Summaries<a class="headerlink" href="#professional-summaries" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Employer</th>
+<th>Profile</th>
+<th>Guide</th>
+<th>Start - End</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blue Yonder</td>
+<td>Data Scientist</td>
+<td>Karthik Rampelli</td>
+<td>April 2022 - Present</td>
+</tr>
+<tr>
+<td>Australia New Zealand Bank</td>
+<td>Enterprise Data Automation Engineer</td>
+<td>YS Madhav</td>
+<td>July 2021 - March 2022</td>
+</tr>
+<tr>
+<td>Axis Bank</td>
+<td>Business Intelligence Intern</td>
+<td>Santanu Dutta</td>
+<td>April 2020 - June 2020</td>
+</tr>
+<tr>
+<td>School of Computing National University of Singapore</td>
+<td>Artificial Intelligence Research Scholar</td>
+<td>Professor Bryan Hooi</td>
+<td>November 2019 - December 2019</td>
+</tr>
+<tr>
+<td>Innovation Cell IITB</td>
+<td>Computer Vision Lead</td>
+<td>Professor Dhwanil Shukla</td>
+<td>October 2019 - March 2020</td>
+</tr>
+<tr>
+<td>PV Diagnostics</td>
+<td>Data Analyst</td>
+<td>Pranav Maheshwari</td>
+<td>November 2018 - December 2018</td>
+</tr>
+</tbody>
+</table>
+<h3 id="educational-summaries">Educational Summaries<a class="headerlink" href="#educational-summaries" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Examination</th>
+<th>University</th>
+<th>Institute</th>
+<th>Year</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Graduation</td>
+<td>Indian Institute of Technology Bombay</td>
+<td>Department of Chemical Engineering</td>
+<td>2021</td>
+<td>7.77/10</td>
+</tr>
+<tr>
+<td>Exchange Semester</td>
+<td>Denmark Technical University</td>
+<td>Chemical Engineering</td>
+<td>2019</td>
+<td>Included in Graduation</td>
+</tr>
+<tr>
+<td>Intermediate</td>
+<td>Maharashtra State Board</td>
+<td>Somalwar Junior College</td>
+<td>2017</td>
+<td>88.92/100</td>
+</tr>
+<tr>
+<td>Matriculation</td>
+<td>Central Board of Secondary Education</td>
+<td>Gondia Public School</td>
+<td>2015</td>
+<td>97.2/100</td>
+</tr>
+</tbody>
+</table>
+<h3 id="courses-completed-in-graduation">Courses completed in Graduation<a class="headerlink" href="#courses-completed-in-graduation" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Freshman Year Courses</th>
+<th>Sophomore Year Courses</th>
+<th>Junior  Year Courses</th>
+<th>Final Year Courses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Introduction to Chemical Engineering</td>
+<td>Introduction to Numerical Analysis</td>
+<td>Introduction to Data Analysis</td>
+<td>Artificial Intelligence in Process Engineering</td>
+</tr>
+<tr>
+<td>Calculus</td>
+<td>Differential Equations II</td>
+<td>Process Control</td>
+<td>Techno-Commerical Aspects of Fine Chemicals</td>
+</tr>
+<tr>
+<td>Linear Algebra</td>
+<td>Computational Methods Lab</td>
+<td>Process Modelling and Identification</td>
+<td>Process Equipment Selection</td>
+</tr>
+<tr>
+<td>Differential Equations</td>
+<td>Optimization Models</td>
+<td>Mass Transfer I</td>
+<td>Process Economics</td>
+</tr>
+<tr>
+<td>Engineering Graphics &amp; Drawing</td>
+<td>Introducing to Machine Learning</td>
+<td>Mass Transfer II</td>
+<td>Design Lab I</td>
+</tr>
+<tr>
+<td>Computer Programming and Utilization</td>
+<td>Introduction to Transport Phenomena</td>
+<td>Chemical Processes</td>
+<td>Process Equipment Design</td>
+</tr>
+<tr>
+<td>Workshop Practice</td>
+<td>Chemical Engineering Thermodynamics I</td>
+<td>Chemical Reaction Engineering</td>
+<td>Chemical Process Design</td>
+</tr>
+<tr>
+<td>Biology</td>
+<td>Psychology</td>
+<td>Solid Mechanics</td>
+<td>Process Design Project</td>
+</tr>
+<tr>
+<td>Organic &amp; Inorganic Chemistry</td>
+<td>Technical Thermodynamics *</td>
+<td>Understanding Design</td>
+<td>Environmental Studies: Science and Engineering</td>
+</tr>
+<tr>
+<td>Physical Chemistry</td>
+<td>Heat Transmission *</td>
+<td>Economics</td>
+<td>Environmental Studies: Humanities</td>
+</tr>
+<tr>
+<td>Basics of Electricity &amp; Magnetism</td>
+<td>Fluid Mechanics *</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Quantum Physics and Application</td>
+<td>Materials Technology *</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>General Electrical Engineering *</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chemical Unit Operations *</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>* Courses completed at Denmark Technical University</p>
+<h3 id="certifications">Certifications<a class="headerlink" href="#certifications" title="Permanent link">¶</a></h3>
+<ol>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Data Science Foundations Data Engineering</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Eckovation Big Data Certificate</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Exploratory Data Analysis</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Getting and Cleaning Data</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Google Analytics Course Certificate</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">Google Analytics Individual Qualification</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">R Programming</a></li>
+<li><a href="https://github.com/Harsh-Maheshwari/harsh-maheshwari.github.io/tree/main/src/Assets/online/Certificates">The Data Scientist Toolbox</a></li>
+</ol>
+<h3 id="skills-badges">Skills Badges<a class="headerlink" href="#skills-badges" title="Permanent link">¶</a></h3>
+<h4 id="machine-learning-deep-learning">Machine Learning &amp; Deep Learning<a class="headerlink" href="#machine-learning-deep-learning" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&amp;logo=TensorFlow&amp;logoColor=white"><img alt="TensorFlow" src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&amp;logo=TensorFlow&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&amp;logo=Keras&amp;logoColor=white"><img alt="Keras" src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&amp;logo=Keras&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&amp;logo=PyTorch&amp;logoColor=white"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&amp;logo=PyTorch&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&amp;logo=numpy&amp;logoColor=blue"><img alt="mlflow" src="https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&amp;logo=numpy&amp;logoColor=blue"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&amp;logo=numpy&amp;logoColor=white"><img alt="NumPy" src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&amp;logo=numpy&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&amp;logo=pandas&amp;logoColor=white"><img alt="Pandas" src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&amp;logo=pandas&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&amp;logo=plotly&amp;logoColor=white"><img alt="Plotly" src="https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&amp;logo=plotly&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&amp;logo=scikit-learn&amp;logoColor=white"><img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&amp;logo=scikit-learn&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&amp;logo=scipy&amp;logoColor=%white"><img alt="SciPy" src="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&amp;logo=scipy&amp;logoColor=%white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&amp;logo=opencv&amp;logoColor=white"><img alt="OpenCV" src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&amp;logo=opencv&amp;logoColor=white"/></a></p>
+<h4 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/mysql-%2300000f.svg?&amp;style=for-the-badge&amp;logo=mysql&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/mysql-%2300000f.svg?&amp;style=for-the-badge&amp;logo=mysql&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/postgres-%23316192.svg?&amp;style=for-the-badge&amp;logo=postgresql&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/postgres-%23316192.svg?&amp;style=for-the-badge&amp;logo=postgresql&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&amp;style=for-the-badge&amp;logo=mongodb&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&amp;style=for-the-badge&amp;logo=mongodb&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/sqlite-%2307405e.svg?&amp;style=for-the-badge&amp;logo=sqlite&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/sqlite-%2307405e.svg?&amp;style=for-the-badge&amp;logo=sqlite&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Teradata-F37440?style=for-the-badge&amp;logo=teradata&amp;logoColor=white"><img alt="Teradata" src="https://img.shields.io/badge/Teradata-F37440?style=for-the-badge&amp;logo=teradata&amp;logoColor=white"/></a></p>
+<h4 id="apache">Apache<a class="headerlink" href="#apache" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&amp;logo=apachekafka"><img alt="Apache Kafka" src="https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&amp;logo=apachekafka"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Apache_Spark-%23E25A1C.svg?&amp;style=for-the-badge&amp;logo=Apache%20Spark&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/Apache_Spark-%23E25A1C.svg?&amp;style=for-the-badge&amp;logo=Apache%20Spark&amp;logoColor=white"/></a></p>
+<h4 id="ml-infrastructure">ML Infrastructure<a class="headerlink" href="#ml-infrastructure" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Kubernetes-%23326CE5.svg?&amp;style=for-the-badge&amp;logo=Kubernetes&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/Kubernetes-%23326CE5.svg?&amp;style=for-the-badge&amp;logo=Kubernetes&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Docker-%232496ED.svg?&amp;style=for-the-badge&amp;logo=Docker&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/Docker-%232496ED.svg?&amp;style=for-the-badge&amp;logo=Docker&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Helm-%23326DF6.svg?&amp;style=for-the-badge&amp;logo=Helm&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/Helm-%23326DF6.svg?&amp;style=for-the-badge&amp;logo=Helm&amp;logoColor=white"/></a></p>
+<h4 id="ci">CI<a class="headerlink" href="#ci" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white"><img alt="GitHub Actions" src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&amp;logo=githubactions&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&amp;logo=circleci&amp;logoColor=white"><img alt="CircleCI" src="https://img.shields.io/badge/circle%20ci-%23161616.svg?style=for-the-badge&amp;logo=circleci&amp;logoColor=white"/></a></p>
+<h4 id="programming-languages">Programming Languages<a class="headerlink" href="#programming-languages" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/python-%233776AB.svg?&amp;style=for-the-badge&amp;logo=python&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/python-%233776AB.svg?&amp;style=for-the-badge&amp;logo=python&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/Mathworks-%230076A8.svg?&amp;style=for-the-badge&amp;logo=Mathworks&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/Mathworks-%230076A8.svg?&amp;style=for-the-badge&amp;logo=Mathworks&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/r%20-%23276DC3.svg?&amp;style=for-the-badge&amp;logo=r&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/r%20-%23276DC3.svg?&amp;style=for-the-badge&amp;logo=r&amp;logoColor=white"/></a> </p>
+<h4 id="web-frameworks">Web Frameworks<a class="headerlink" href="#web-frameworks" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/fastapi%20-%23092E20.svg?&amp;style=for-the-badge&amp;logo=fastapi&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/fastapi%20-%23092E20.svg?&amp;style=for-the-badge&amp;logo=fastapi&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/django%20-%23092E20.svg?&amp;style=for-the-badge&amp;logo=django&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/django%20-%23092E20.svg?&amp;style=for-the-badge&amp;logo=django&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/flask%20-%23000.svg?&amp;style=for-the-badge&amp;logo=flask&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/flask%20-%23000.svg?&amp;style=for-the-badge&amp;logo=flask&amp;logoColor=white"/></a></p>
+<h4 id="front-end">Front End<a class="headerlink" href="#front-end" title="Permanent link">¶</a></h4>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/html5%20-%23E34F26.svg?&amp;style=for-the-badge&amp;logo=html5&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&amp;style=for-the-badge&amp;logo=html5&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/css3%20-%231572B6.svg?&amp;style=for-the-badge&amp;logo=css3&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&amp;style=for-the-badge&amp;logo=css3&amp;logoColor=white"/></a>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&amp;style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white"><img alt="" src="https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&amp;style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white"/></a></p>
+<h2 id="my-journey">My Journey<a class="headerlink" href="#my-journey" title="Permanent link">¶</a></h2>
+<h3 id="the-rough-game-of-jee-2015-2017">The Rough Game of JEE 2015-2017<a class="headerlink" href="#the-rough-game-of-jee-2015-2017" title="Permanent link">¶</a></h3>
+<p>After Completing my standard 10<sup>th</sup> in 2015, I left home for the first time to become an engineer and started my journey at IIT Home, Nagpur. I spent most of the next two years studying for JEE Advanced, listening to music, and meditating. Yep, It Works! After achieving an AIR of 735 in JEE Mains and 1382 in JEE Advanced, I joined the Indian Institute of Technology Bombay as a Chemical Engineering Fresher.</p>
+<h3 id="2017-june-2018-june">2017 June - 2018 June<a class="headerlink" href="#2017-june-2018-june" title="Permanent link">¶</a></h3>
+<p>Freshman year, I explored college events like XLR8 [Made my first manually controlled car], volunteered in Mood Indigo [Cultural Fest of IIT Bombay], participated in the annual entrepreneurship Summit of IIT Bombay [E-Summit]. My team achieved 3<sup>rd</sup> position among 30+ teams from IIT Bombay in Andro-NG, an Android app development competition. Completed a yearlong volleyball training and Won 3<sup>rd</sup> position in Street Play Arcade and Gold in Literary Arts GC for Hostel 2 [The Wild Ones]. And like any other freshmen, attended Blockchain seminars, Finance workshops, Start-up Bootcamps, and much more, only to realize that nothing helps until you do it yourself.</p>
+<h3 id="2018-june-2018-december">2018 June - 2018 December<a class="headerlink" href="#2018-june-2018-december" title="Permanent link">¶</a></h3>
+<p>Sophomore year, Through some of the course works, I developed an interest in Machine Learning. My first-course project in machine learning was on Hate &amp; Offensive Speech Detection under Professor Sunita Sarawagi. I also joined Innovation Cell as a Finance and Infrastructure manager. In the December of 2018, I had my first professional work at PV-Diagnostics as a Data Analyst.</p>
+<h3 id="the-international-year-of-2019">The International year of 2019<a class="headerlink" href="#the-international-year-of-2019" title="Permanent link">¶</a></h3>
+<p>One of the best parts of my college life includes the semester I spent in Denmark. I left India in January of 2019 to start my semester at the Technical University of Denmark as an exchange student. During my stay in Europe, I backpacked my way across 15 cities in 10 countries. I met many new people during my travel, learned a lot about European culture. <code>#BackpackingThroughEurope</code>. As an exchange scholar, I worked in a Pilot-scale chemical plant on four different setups, namely Liquid-Liquid Extraction, Gas Flow in Pipes, Batch Distillation, Filtration in a Filter Press. During this semester, I understood the huge gap of professionalism in India Society and Education system. After a fantastic semester abroad, I came back to IIT Bombay and joined Innovation Cell again, but this time as a Computer Vision Engineer building deep learning models for advanced vehicles like automated drones for the Barcelona Smart Drone Challenge and self-driving cars. It was a learn and apply journey. Then in November of 2019, I was fortunate enough to grab a research opportunity at the National University of Singapore. I spent a month and a half researching deep learning methods and their application in Network Graphs and Link Prediction Problem in Singapore under the guidance of Professor Bryan Hooi.</p>
+<h3 id="2020-the-year-of-coming-home-the-time-of-sars-cov-2">2020 The Year of coming Home - The Time of SARS-CoV-2<a class="headerlink" href="#2020-the-year-of-coming-home-the-time-of-sars-cov-2" title="Permanent link">¶</a></h3>
+<p>After traveling so much, I knew the lifestyle I wanted. College experiences and internships helped me figure out I loved data science and deep learning. In subsequent semesters of junior year, I worked on many different projects involving deep learning and machine learning applications. I worked with professor Sharad Bhartiya on the Modelling &amp; Identification of Gas sensor data for a dynamic chemical gas mixture. In the summer of 2020, I grabbed an opportunity at Axis Bank to work in their Business Intelligence team. After two months of work, I created a micro-service on Kubernetes and Docker to predict customer income using Geospatial and Customer Information data. Due to the SARS-CoV-2 epidemic, many things changed, and quite a lot of effort got into adjusting to the new normal. Everyone was now working from home, and all colleges were now virtual. After a blissful summer, I started my final year working under Professor Sharad Bhartiya to study machine learning methods for the prediction of financial markets. Due to this project, my interest was peaking towards the financial markets, and my background in machine learning drove me towards algorithmic trading and quantitative finance. And then, in a LinkedIn post, I got to know about the book on generating Predictive Models to Extract Signals from Market by Stefan Jansen. It is one of the best books on applications of Machine learning in the Market. Placements for my batch began in the December of 2020. After three days of struggle, Australia and New Zealand bank Bangalore office accepted me for a Data Lifecycle Evolution role.</p>
+<h3 id="the-last-semester-jan-2021-may-2021">The Last Semester Jan 2021 - May 2021<a class="headerlink" href="#the-last-semester-jan-2021-may-2021" title="Permanent link">¶</a></h3>
+<p>During the last five months of my undergraduate degree, we were all still at home [Gift of SARS-CoV-2]. I will regret this to the end of time. But still, our professors made sure that we get the experience of the actual chemical industry as much as possible. Over the length of 5 months, I was involved in developing extensively detailed reports on producing three chemicals, namely Ethylene Oxide, Styrene, and Dihydromyrcene [my favorite]. These projects were part of our curriculum, and many professors contributed by helping us at various steps. As the end came near, everything became so nostalgic.</p>
+<h3 id="the-first-job-june-2021-march-2022">The First Job June 2021 - March 2022<a class="headerlink" href="#the-first-job-june-2021-march-2022" title="Permanent link">¶</a></h3>
+<p>I started working at ANZ Bank as a fresh graduate out of college. For the first few months I learned about the way data sourcing activities are taking place for the Enterprise data. The major technologies involved in this process were IBM Data Stage, Teradata and Control M. After understanding and manually going over the dataflow for the ANZ datalake, I was able to figure out many processes that could be automated in the daily workload. The next few months majority of my time spent taking input from teams regarding the usefulness and possible structure of such a system. After the initial approval I developed a complete Development and Test Automation Framework using Robot Framework and Python. I was able to minimize the effort to a level where we just had to fill an excel sheet and the rest would happen automatically. Starting from picking up data from a unix server to loading it into a Teradata Table using Data Stage. To verify if the data was loaded properly, set of python functions where developed which would log into Teradata to download the loaded data and compare with the original file. I can not go into more details about the product but this saved a lot of Development time and Testing time Other then my job work I lead a Tech4Grads initiative with the aim to bring technological awareness and cross collaboration in the Tech Domain. We ran projects like Building a Market Place and Tech Awareness. Both of these projects were developed as a POC under the Graduate community at ANZ and the aim was to bring about a cultural tradition in technology by new graduates that come to ANZ every year.<br/>
+One of the very interesting thing I learned at ANZ was Agile working and role of a scrum master in a team. For all of my next projects (at least personal projects) I have decided to use an Agile mindset and approach every thing for Agile First Approach.</p>
+<h3 id="the-second-job-april-2022-present">The Second Job April 2022 - Present<a class="headerlink" href="#the-second-job-april-2022-present" title="Permanent link">¶</a></h3>
+<p>Curious About The Website!! This is a <a href="https://www.mkdocs.org/">mkdocs</a> powered completely built using python and markdown, very easy to code and customize.</p>
+<style>
+.md-typeset h1 {
+  color: Black;
+  margin: 0 0 0 0;
+  font-weight: bold;
+}
+.md-content__button {
+  display: none;
+}
+</style>
+<form class="md-feedback" hidden="" name="feedback">
+<fieldset>
+<legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+<div class="md-feedback__inner">
+<div class="md-feedback__list">
+<button class="md-feedback__icon md-icon" data-md-value="1" title="This page was helpful" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"></path></svg>
+</button>
+<button class="md-feedback__icon md-icon" data-md-value="0" title="This page could be improved" type="submit">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"></path></svg>
+</button>
+</div>
+<div class="md-feedback__note">
+<div data-md-value="1" hidden="">
+              
+              
+                
+              
+              
+                Thanks for your feedback!
+              
+            </div>
+<div data-md-value="0" hidden="">
+              
+              
+                
+              
+              
+                Thanks for your feedback! Help us improve this page by using our <a href="..." rel="noopener" target="_blank">feedback form</a>.
+              
+            </div>
+</div>
+</div>
+</fieldset>
+</form>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Markdown Tricks" class="md-footer__link md-footer__link--prev" href="../Insights/Tips%20%26%20Tricks/2022-01-05%20Markdown%20Tricks/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Markdown Tricks
+            </div>
+</div>
+</a>
+<a aria-label="Next: Machine Learning Basics" class="md-footer__link md-footer__link--next" href="Machine%20Learning/2022-01-01%20Machine%20Learning%20Basics/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Machine Learning Basics
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © Decide With ML Since 2022
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/harsh-maheshwari" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/in/harsh-maheshwari/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://medium.com/@harshmaheshwari3110" rel="noopener" target="_blank" title="medium.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 74.262C80.813 74.262 0 155.633 0 256s80.819 181.738 180.5 181.738S361 356.373 361 256 280.191 74.262 180.5 74.262Zm288.25 10.646c-49.845 0-90.245 76.619-90.245 171.095s40.406 171.1 90.251 171.1 90.251-76.619 90.251-171.1H559c0-94.503-40.4-171.095-90.248-171.095Zm139.506 17.821c-17.526 0-31.735 68.628-31.735 153.274s14.2 153.274 31.735 153.274S640 340.631 640 256c0-84.649-14.215-153.271-31.742-153.271Z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our website and whether users find what they're searching for. With your consent, you're helping us to make our website better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+</label></label></li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accept</button>
+<label class="md-button" for="__settings">Manage settings</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "content.code.annotate", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.expand", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="../Assets/js/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
