@@ -79,7 +79,7 @@ Number of output neurons depends on the type and number of predictions
 ###  Norms 
 
 - A small change in input mini batch distribution can be noticed as a very large change in deeper layers (due to chain of change formulation). This phenomenon / problem is called **internal covariance shift**. BatchNorm solves the issue of internal covariance shift. 
-- **BatchNorm**  simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a weak regularizer. 
+- **BatchNorm** simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a weak regularizer. Batch Norm is applied after calculating  $w^Tx$ and before applying the activation
 - Using **BatchNorm** lets us use larger learning rates (which result in faster convergence) and lead to huge improvements in most neural networks by reducing the vanishing gradients problem. The only downside is that it slightly increases training times because of the extra computations required at each layer.
 - [Reference](https://arxiv.org/pdf/1502.03167v3.pdf) 
 
@@ -183,4 +183,41 @@ Checkout the insight in [Losses and Metrics](/Insights/Evolving Insights/2022-12
 - [Stack Overflow Discussion](https://stackoverflow.com/questions/44796793/difference-between-tf-clip-by-value-and-tf-clip-by-global-norm-for-rnns-and-how)
 - [Images](https://cs231n.github.io/neural-networks-3/)
 - [Gradient Descent](https://towardsdatascience.com/how-do-we-train-neural-networks-edd985562b73) | [Denoise gradients using Exponential smoothing : Stochastic Gradient Descent with momentum](https://towardsdatascience.com/stochastic-gradient-descent-with-momentum-a84097641a5d)
+
+
+## Transfer Learning
+1. If new data is very similar to previous data then : Don't fine tune anything : Use the pre trained model weights as feature engineering tool
+2. If new data is medium size and similar to previous data then : Fine tune the the a few last layers of the model with small learning 
+3. If new data is large size and similar/dis-similar to previous data then : Fine tune the the complete model equivalently use the pre trained model weights as initialisation for the new model
+4. [Transfer Learning](https://cs231n.github.io/transfer-learning/)
+
+## ConvNets
+1. Padding : Zero Padding (popular) Vs Same value padding (Not used very much)
+2. Output dimension formula for Input Image of size $N \times N$, with padding $P$ and stride $S$  is $floor(\frac{N-2+2P}{S}) + 1$
+3. [Depth-wise Convolution and Depth-wise Separable Convolution](https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec)
+4. Data Augmentation : Improve types and quantity of Invariance (shift, rotation, zoom, shear, noise)  
+5. Max Pooling Subsampaling is used to solve these problems
+	- Location Invariance
+	-  Scale Invariance
+	- Rotation Invariance
+!!! questions annotate "Should the kerenel width and number of kernels increase or decrease as depth increases in CNNs ?"
+	- In general keep the feature space wide (smaller size of filters `mxn`) and shallow (low number of filters) in the initial stages of the network,  and then make it narrower (bigger size of filters `mxn`) and deeper (high number of filters) towards the end.
+	- We want initial layers to learn simple features like edge detectors etc. There are a limited number of such features. Hence the low number of filters in the beginning.
+	- Each of the filters in the previous layers can be combined in exponential number of ways to detect complex patterns. For example, if previous layer has 4 filters, then next layer can learn to combine them in 2^n = 16 different ways.
+	- Not all of those ways will be exhaustively needed, so a rough rule of thumb is to double the number of filters as you increase layers because the number of complex patterns will be exponentially more than number of simple patterns to learn.
+
+
+### Refernces and Questions
+- In CNNs, how we can be sure that all kernals are not learning same thing? (Ans: Random Initialisation)
+- [large_kernel](https://ai-scholar.tech/en/articles/treatise/large_kernel)
+- [Cnn ppt](https://www.slideshare.net/kuwajima/cnnbp)
+- [DL-Tutorial-NIPS2015](http://www.iro.umontreal.ca/~bengioy/talks/DL-Tutorial-NIPS2015.pdf)
+- [cs231n Stanford CNN course](http://cs231n.stanford.edu/)
+- [ConvolutionalNeuralNetwork](http://ufldl.stanford.edu/tutorial/supervised/ConvolutionalNeuralNetwork/)
+- [LeNet](https://www.kaggle.com/code/blurredmachine/lenet-architecture-a-complete-guide/notebook)
+- [AlexNet paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf), [AlexNet image](https://i0.wp.com/ramok.tech/wp-content/uploads/2017/12/2017-12-31_01h31_40.jpg)
+- [ResNet](https://arxiv.org/pdf/1512.03385.pdf) : x -> Conv -> Relu -> Conv -> x1 || <--+ x || -> Relu
+- [InceptionNet](https://arxiv.org/pdf/1512.00567.pdf) : Multple kernel output concatenations using 1x1 convolution hack
+- [LSTMs](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) | [LSTMs No of Parameters](https://www.youtube.com/watch?v=l5TAISVlYM0&ab_channel=AppliedAICourse) | [GRU_1](https://www.slideshare.net/hytae/recent-progress-in-rnn-and-nlp-63762080)  | [GRU_2](https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be)
+- Why is padding done in LSTMs ? (To run the Optimisation on a batch and not on single example)
 

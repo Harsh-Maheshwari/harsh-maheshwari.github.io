@@ -47,6 +47,17 @@ Hinge Loss  :   $max(0, 1- y_i(w^Tx_i+b)) = \zeta_i$
 [Reference](https://svivek.com/teaching/lectures/slides/loss-minimization/loss-minimization.pdf)
 
 
+## Overfitting, Underfitting, Variance, Bias and Generalisation
+In general
+	Overfitting results in High Variance 
+	Underfitting results in High Bias
+
+If the data has high number of a constant value in prediction like : maximum 0s 
+then 
+	Overfitting can result in High Bias
+
+
+
 ## ToDo
 - A/B Testing
 - A-A-B Testing

@@ -6,23 +6,9 @@ description: We are here to help you optimise the way you do business and scale 
 
 ## Reading Material
 
-!!! abstract "List of important research papers"
-	1. [Comprehensive Survey of Loss Functions in Machine Learning](https://faculty.ist.psu.edu/vhonavar/Courses/ds310/lossfunc.pdf)
-	2. Classification 
-		1. [Study of deep learning loss functions for multi-label remote sensing image classification](https://arxiv.org/pdf/2009.13935.pdf)
-		2. [Recall Loss for Semantic Segmentation](https://paperswithcode.com/paper/striking-the-right-balance-recall-loss-for)
-		3. [Focal Loss for Dense Object Detection](https://paperswithcode.com/method/focal-loss)
-		4. [Class Distance Weighted Cross-Entropy Loss](https://paperswithcode.com/paper/class-distance-weighted-cross-entropy-loss)
-	3. Regression
-		1. [Regression Based Loss Functions for Time Series Forecasting](https://arxiv.org/pdf/2211.02989.pdf)
-
 !!! note
  - We can prove mathematically that linear regression, logistics regression & all kinds of svms have a convex loss function hence only a single minima
  - All deep learning models with 2 or more layers can have a non Convex loss function hence   more than one  minima
-
-## Unique Losses
-### Earth Mover’s Distance
-- [Reference](https://www.arxiv-vanity.com/papers/1611.05916/)
 
 ## Regression Losses
 
@@ -150,3 +136,8 @@ where $R_{c,t}$ is the recall for class c at optimization step t.
 | [markedness](https://en.wikipedia.org/wiki/Markedness "Markedness") (MK) or deltaP (Δp)                                                                                                                                                                                                                                                                                        |  ![{\displaystyle \mathrm {MK} =\mathrm {PPV} +\mathrm {NPV} -1}](https://wikimedia.org/api/rest_v1/media/math/render/svg/5437f65a40714949105525ad5f8217d654299bca)                                                                                                                                                                              |
 | [Diagnostic odds ratio](https://en.wikipedia.org/wiki/Diagnostic_odds_ratio "Diagnostic odds ratio") (DOR)                                                                                                                                                                                                                                                                     |  ![{\displaystyle \mathrm {DOR} ={\frac {\mathrm {LR+} }{\mathrm {LR-} }}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/b9dada7033529d23d18ab9bf9fc882092c1f636c)                                                                                                                                                                    |
 [Confusion Matrix Reference](https://en.wikipedia.org/wiki/Confusion_matrix) 
+
+
+### References
+
+- [Focal Loss](https://medium.com/visionwizard/understanding-focal-loss-a-quick-read-b914422913e7)

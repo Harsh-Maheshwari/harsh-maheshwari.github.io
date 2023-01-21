@@ -118,6 +118,9 @@ $$KS \ Stat = Max (|p'(x)-q'(x)|)$$
 
 where $p'$ = CDF of $P(x)$
 
+## How to measure if two distributions are similar or not ?
+- There are many tests and metrics like KS-test, JS-divergence, KL-divergence, Wasserstein metric to get an idea about similarity of two distributions. But all of these have some or the other limiltation. 
+- The most robust way to estimate similarity is to train a model with each component distribution given a class label, i.e. for the $i_{th}$ distrubution $D_i$  we can assign a distinct label $i$ in the target $y$. Then train a fairly complex model, If the log loss of the traied model is low then the model is able to distinguish between the distributions. and hence the distributions are different. If the log loss is on the higher side than the model is not able to distinguish between the distributions and hence the distributions are similar.
 
 #### References
 1. [basic probability](https://medium.com/@sunil7545/necessary-probability-concepts-for-deep-learning-557f75dd3bce)
