@@ -5,6 +5,15 @@ description: We are here to help you optimise the way you do business and scale 
 ---
 
 ## Reading Material
+1. [Comprehensive Survey of Loss Functions in Machine Learning](https://faculty.ist.psu.edu/vhonavar/Courses/ds310/lossfunc.pdf)
+2. Classification
+	1. [Study of deep learning loss functions for multi-label remote sensing image classification](https://arxiv.org/pdf/2009.13935.pdf)
+	2. [Recall Loss for Semantic Segmentation](https://paperswithcode.com/paper/striking-the-right-balance-recall-loss-for)
+	3. [Focal Loss for Dense Object Detection](https://paperswithcode.com/method/focal-loss)
+	4. [Class Distance Weighted Cross-Entropy Loss](https://paperswithcode.com/paper/class-distance-weighted-cross-entropy-loss)
+	5. [Squared Earth Mover’s Distance-based Loss for Training Deep Neural Networks](https://www.arxiv-vanity.com/papers/1611.05916/)
+3. Regression
+	1. [Regression Based Loss Functions for Time Series Forecasting](https://arxiv.org/pdf/2211.02989.pdf)
 
 !!! note
  - We can prove mathematically that linear regression, logistics regression & all kinds of svms have a convex loss function hence only a single minima
@@ -48,11 +57,10 @@ description: We are here to help you optimise the way you do business and scale 
 
 ## Classification Losses
 
-- Multi Class Log-Loss  or Categorical Cross Entropy
+- Multi Class Log-Loss  or Categorical [Cross Entropy](https://machinelearningmastery.com/cross-entropy-for-machine-learning/) 
 
 $$- \frac{1}{n}\sum_{i=1}^n \sum_{j=1}^C y_{ij}' log(p_{ij})$$
 
--  Sparse Categorical Cross Entropy
 - RecallCE Loss
 
 $$RecallCE \ Loss = -\sum_{c=1}^C(1-R_{c,t})*log(p_{n,t})  \ = \ 

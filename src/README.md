@@ -109,11 +109,8 @@ We help you make the most of your existing technology, tools and software by dev
 
 
 ## <center>**Our Beliefs**</center>
-If you have not yet read the book Go-Giver by Bob Burk and John David Mann, We humbly suggest you give this book a try and see your life change
-	
-![GoGiver](/Assets/img/GoGiver.webp)
-
-These values that you see above have guided us along a sustainable path towards success and happiness of doing something good in the world. Obviously we are a technology heavy company and we strive to be at the forefront of experimentation with new research, new ideas and development of an open source community.
+![GoGiver](/Assets/img/GoGiver.webp){width=50%, align=left}
+As a technology heavy company, we strive to be at the forefront of experimentation with new research, new ideas and development of an open source community. And our beliefs have helped us in achieving this task. The Go-Giver, written by Bob Burg and John David Mann, has been a cornerstone philosophy at our company. This business fable emphasizes the importance of giving in order to achieve success has been a guiding principle for our business practices. By focusing on giving more in value than we take in payment, we have been able to build strong, mutually beneficial relationships with our customers, community, and employees. We have implemented this principle in various ways throughout our business practices, such as by consistently over-delivering on our promises to customers, and by actively seeking out ways to give back to our community. This approach has not only led to greater success and fulfillment for our business, but it has also allowed us to make a positive impact in the world. We are proud to be a Go-Giver company and continue to strive towards this principle in all that we do. Quoting one more important line from the book : "The more you know, the less you need to say." This line emphasizes the importance of listening, learning, and understanding in order to build effective relationships. It suggests that the people who truly know their stuff, don't feel the need to constantly prove it by talking about it. Instead, they listen attentively, ask questions, and take the time to truly understand the needs and perspectives of others. This line is a powerful reminder that effective communication is not just about talking, but also about listening and understanding. As a business we have tried to integrate this in our practices. These values have guided us along a sustainable path towards success and happiness of doing something good in the world. We humbly suggest you to give this book a try and see your life change. 
 
 ## About the Founder
 

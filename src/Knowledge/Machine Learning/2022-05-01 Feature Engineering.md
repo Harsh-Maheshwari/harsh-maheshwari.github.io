@@ -23,7 +23,6 @@ tags:
 - Lemmitizatiom : break a sentence into word  [Ref1](https://stackoverflow.com/questions/1787110/what-is-the-true-difference-between-lemmatization-vs-stemming), [Ref2](https://blog.bitext.com/what-is-the-difference-between-stemming-and-lemmatization/) 
 
 #### Text to Vectors
-
 #####  Bag of Words (BOW) 
 - Semantic meaning of word is lost
 - Binary/Boolean BOW
@@ -47,6 +46,9 @@ tags:
 - [Semantic and  information about the Position in a sentence is captured](https://kazemnejad.com/blog/transformer_architecture_positional_encoding/)
 - [Keras Position Embedding](https://keras.io/api/keras_nlp/layers/position_embedding/)
 - Transformers  : Absolute Or Relative [Positional Embedding](https://theaisummer.com/positional-embeddings/#positional-encodings-vs-positional-embeddings)
+
+#####  BERT & DistillBERT
+- Can be used as replacement for word2vec
 
 !!! note 
 	Transformers are more efficient in parallel processing than LSTMs [Reference 1](https://voidful.medium.com/why-transformer-faster-then-lstm-on-generation-c3f30977d747#:~:text=That's%20all%20for%20transformer%20model,neural%20network%20such%20as%20LSTM.), [Reference 2](https://ai.stackexchange.com/questions/20075/why-does-the-transformer-do-better-than-rnn-and-lstm-in-long-range-context-depen) 
@@ -76,7 +78,38 @@ $$X_k = \sum_{n=0}^{N-1} x_ne^{-2 \pi ikn/N}$$
 > Now we obtain the frequencies that are present in the variable.  Each of the values in the outcome series is the strength of a specific frequency.  If the amplitude of a frequency is high, then that seasonality is important in the orginal time series (or waves). There exists an Computational optimized form of DFT called Fast Fourier Transform. It is computed using the **Cooley-Tukey FFT algorithm.**
    
 
+### Graph Data
+#### Node Level Features
+##### Node InDegree and Node OutDegree 
+##### Eigenvector Centrality
+##### Clustering Coefficient
+##### DeepWalk
+##### Graph coloring
+##### HOPE
+##### [Page Rank](https://en.wikipedia.org/wiki/PageRank)
+Adar Index
+Kartz Centrality
+Shortest Path
+Connected-component
+HITS Score
 
+
+#### Graph Level Features
+##### Adjacency Matrix
+##### Laplacian Matrix
+##### Bag of Nodes
+##### Weisfeiler-Lehman Kernel
+##### Graphlet Kernels
+##### Path-based Kernels
+##### [GraphHopper kernel](https://ysig.github.io/GraKeL/latest/kernels/graph_hopper.html), [Neural Message Passing](https://arxiv.org/abs/1704.01212),  [Graph Convolutional Networks](https://arxiv.org/abs/1609.02907)
+
+#### Neighbourhood Overlap Features
+##### Local Overlap Measures
+##### Global Overlap Measures
+#####
+#####
+#####
+#####
 
 ### Sequence Data 
 
