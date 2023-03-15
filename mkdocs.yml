@@ -1,0 +1,217 @@
+docs_dir: src
+site_dir: docs
+
+site_name: Decide With ML
+site_url: https://harsh-maheshwari.github.io
+site_author: Harsh Maheshwari
+site_description: We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.
+
+repo_url: https://harsh-maheshwari.github.io
+repo_name: Decide With ML
+
+copyright: Copyright &copy Decide With ML Since 2022
+
+extra_css:
+  - Assets/css/extra.css
+
+extra_javascript:
+  - Assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+  
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: black
+      accent: black
+  font:
+    text: Barlow
+    code: 'Cascadia Code PL'
+
+  # favicon: Assets/img/dwml_logo_black.png
+  # logo: Assets/img/dwml_logo_black.png
+
+  icon:
+    logo: material/layers-triple-outline
+  favicon: material/layers-triple-outline
+  # static_templates:
+  #   - 404.html
+
+
+  features:
+    # - announce.dismiss
+    # - header.autohide
+    - content.tabs.link
+    - content.code.annotate
+    - content.tooltips
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - navigation.tabs
+    # - navigation.sections
+    - navigation.expand
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.tabs.sticky
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+markdown_extensions:
+  - pymdownx.extra
+  - admonition         # Adds boxes for Notes, Warnings, etc.
+  - attr_list          # Adds attribute lists to generated HTML
+  - codehilite         # Syntax coloring for code blocks
+  - def_list           # Adds syntax for definition lists
+  - sane_lists         # Enables list items with multiple paragraphs
+  - toc: # Builds a table of contents 
+      permalink: true
+      title: On this page
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      auto_append:
+        - src/Assets/css/inline.css
+  - abbr
+  - footnotes
+  - meta
+  - md_in_html
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+
+plugins:
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+  - exclude:
+      glob:
+        - Applied Solutions/data/*
+        - Applied Solutions/utils/*
+        # - Applied Solutions/*
+  # - mkdocs-simple-hooks:
+      # enabled: !ENV [ENABLE_MKDOCS_SIMPLE_HOOKS, True]
+      # hooks:
+        # on_pre_build: "create_toc:create_readme_files"
+
+  # - privacy:
+  #     external_links_attr_map:
+  #       target: _blank
+        
+  - mknotebooks:
+      execute: false
+      write_markdown: false
+      binder: false
+      binder_service_name: "gh"
+      binder_branch: "master"
+      binder_ui: "lab"
+      enable_default_jupyter_cell_styling: true
+      enable_default_pandas_dataframe_styling: true
+      exporter_kwargs:
+        exclude_input: false
+      tag_remove_configs:
+        remove_cell_tags:
+          - remove_cell
+        remove_all_outputs_tags:
+          - remove_all_output
+        remove_single_output_tags:
+          - remove_single_output
+        remove_input_tags:
+          - remove_input
+  - search
+  - tags
+  - ezlinks
+
+  # - roamlinks
+  # - minify:
+  #   minify_html: true
+  # - pheasant
+
+
+extra:
+  generator: false
+  consent:
+    title: Analytical cookies
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our website and whether users find what they're searching for. With your consent, you're helping us to make our website better.
+    cookies:
+      analytics:
+        name: Google Analytics
+        checked: true
+    actions:
+      - accept
+      - manage 
+  analytics: 
+    provider: google
+    property: G-GHECGDQXX8
+    feedback:
+        title: Was this page helpful?
+        ratings:
+          - icon: material/emoticon-happy-outline
+            name: This page was helpful
+            data: 1
+            note: >-
+              Thanks for your feedback!
+          - icon: material/emoticon-sad-outline
+            name: This page could be improved
+            data: 0
+            note: >- 
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/harsh-maheshwari
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/harsh-maheshwari/
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@harshmaheshwari3110
+
+  cookies:
+    analytics:
+      name: Google Analytics
+      checked: false

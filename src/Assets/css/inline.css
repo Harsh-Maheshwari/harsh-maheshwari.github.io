@@ -1,0 +1,10 @@
+<style>
+.md-typeset h1 {
+  color: Black;
+  margin: 0 0 0 0;
+  font-weight: bold;
+}
+.md-content__button {
+  display: none;
+}
+</style>
