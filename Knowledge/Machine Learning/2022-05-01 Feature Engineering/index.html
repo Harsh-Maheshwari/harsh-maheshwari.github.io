@@ -1,0 +1,3129 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Feature Engineering">
+      
+      
+        <meta name="author" content="Harsh Maheshwari">
+      
+      
+        <link rel="canonical" href="https://harsh-maheshwari.github.io/Knowledge/Machine%20Learning/2022-05-01%20Feature%20Engineering/">
+      
+      
+        <link rel="prev" href="../2022-01-02%20Linear%20Neural%20Networks/">
+      
+      
+        <link rel="next" href="../2022-12-31%20Support%20Vector%20Machines/">
+      
+      
+      <link rel="icon" href="../../../material/layers-triple-outline">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Feature Engineering - Decide With ML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CCascadia+Code+PL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Cascadia Code PL"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../Assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GHECGDQXX8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GHECGDQXX8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GHECGDQXX8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#handaling-different-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Decide With ML" class="md-header__button md-logo" aria-label="Decide With ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26zM12 14 3 7l9-7 9 7zm0-11.47L6.26 7 12 11.47 17.74 7zm0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Decide With ML
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feature Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://harsh-maheshwari.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Decide With ML
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Applied%20Solutions/Cancer%20Treatment/" class="md-tabs__link">
+          
+  
+    
+  
+  Applied Solutions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Insights/Evolving%20Insights/2022-12-14%20Quick%20Steps%20Pipeline/" class="md-tabs__link">
+          
+  
+    
+  
+  Insights
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Knowledge
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Decide With ML" class="md-nav__button md-logo" aria-label="Decide With ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26zM12 14 3 7l9-7 9 7zm0-11.47L6.26 7 12 11.47 17.74 7zm0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26z"/></svg>
+
+    </a>
+    Decide With ML
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://harsh-maheshwari.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decide With ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applied Solutions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Applied Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Cancer%20Treatment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cancer Treatment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Hydroponics%20Forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hydroponics Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Quora%20Question%20Pairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quora Question Pairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analysis and Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Analysis and Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Differentiation%20in%20TensorFlow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differentiation in TensorFlow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Dimensionality%20Reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Scaling%20in%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling in Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Evolving Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Evolving Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2022-12-14%20Quick%20Steps%20Pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Steps Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2022-12-15%20Training%20a%20Neural%20Network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training a Neural Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2022-12-16%20Losses%20and%20Metrics%20In%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Losses and Metrics In Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2022-12-17%20Research%20Papers%2C%20Blogs%20%26%20Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research Papers, Blogs & Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2022-12-28%20Probablistic%20Data%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probablistic Data Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2023-01-01%20%20Enhanced%20decision%20making%20using%20Probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enhanced decision making using Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2023-01-11%20Learn%20One%20Thing%20At%20A%20Time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learn One Thing At A Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Evolving%20Insights/2023-01-13%20Explainable%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explainable AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Industry Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Industry Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Industry%20Insights/2022-01-01%20Banking%20Business/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Banking Business
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Industry%20Insights/2022-01-02%20Supply%20Chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supply Chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Industry%20Insights/2022-01-03%20Product%20Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Industry%20Insights/2022-01-04%20Export%20Import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Industry%20Insights/2023-01-17%20Building%20Information%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Information Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Technical Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Technical%20Insights/2022-01-04%20SQL%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Technical%20Insights/2022-12-15%20Big%20Query%20Vs%20Tensorflow%20Transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Big Query Vs Tensorflow Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Technical%20Insights/2023-01-12%20Data%20Science%20Lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips & Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Tips%20%26%20Tricks/2022-01-02%20Jupyter%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Tips%20%26%20Tricks/2022-01-03%20Obsidian%20Tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Tips%20%26%20Tricks/2022-01-03%20Python%20Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Good Python Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Tips%20%26%20Tricks/2022-01-04%20Pop%20Os%20Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pop Os Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Insights/Tips%20%26%20Tricks/2022-01-05%20Markdown%20Tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Knowledge
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Knowledge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-01-01%20Machine%20Learning%20Basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-01-02%20Linear%20Neural%20Networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Feature Engineering
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Feature Engineering
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handaling-different-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handaling different data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handaling different data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-to-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text to Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text to Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bag-of-words-bow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bag of Words (BOW)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf-term-frequency-inverse-documents-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      TF-IDF Term Frequency Inverse Documents Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word2Vec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positional Embedding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bert-distillbert" class="md-nav__link">
+    <span class="md-ellipsis">
+      BERT &amp; DistillBERT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categorical Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-series-wave-form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Series &amp; Wave Form Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time Series & Wave Form Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving Window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fourier Transform
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier Transform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-fourier-transform-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Fourier Transform (DFT)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-level-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Level Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Level Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-indegree-and-node-outdegree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node InDegree and Node OutDegree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenvector-centrality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenvector Centrality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering-coefficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering Coefficient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepWalk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph coloring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hope" class="md-nav__link">
+    <span class="md-ellipsis">
+      HOPE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-rank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Rank
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-level-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Level Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Level Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjacency-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjacency Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laplacian-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laplacian Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bag-of-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bag of Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weisfeiler-lehman-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weisfeiler-Lehman Kernel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphlet-kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphlet Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-based-kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path-based Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphhopper-kernel-neural-message-passing-graph-convolutional-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphHopper kernel, Neural Message Passing, Graph Convolutional Networks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neighbourhood-overlap-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neighbourhood Overlap Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neighbourhood Overlap Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-overlap-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Overlap Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-overlap-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Overlap Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Engineering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-31%20Support%20Vector%20Machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-01%20Decision%20Trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-02%20Ensembles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensembles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-03%20Clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-11%20Useful%20Concepts%20in%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Concepts in Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Image%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/2022-12-16%20Speed%20Up%20Your%20Python%20Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Speed Up Your Python Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/2022-12-17%20Data%20Structures%20%26%20Algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Structures & Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handaling-different-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handaling different data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handaling different data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-to-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text to Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Text to Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bag-of-words-bow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bag of Words (BOW)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf-term-frequency-inverse-documents-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      TF-IDF Term Frequency Inverse Documents Frequency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word2vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word2Vec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positional Embedding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bert-distillbert" class="md-nav__link">
+    <span class="md-ellipsis">
+      BERT &amp; DistillBERT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorical-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categorical Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-series-wave-form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Series &amp; Wave Form Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time Series & Wave Form Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moving-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moving Window
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fourier-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fourier Transform
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fourier Transform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-fourier-transform-dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Fourier Transform (DFT)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-level-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Level Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Level Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-indegree-and-node-outdegree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node InDegree and Node OutDegree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenvector-centrality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eigenvector Centrality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering-coefficient" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clustering Coefficient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepWalk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph coloring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hope" class="md-nav__link">
+    <span class="md-ellipsis">
+      HOPE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-rank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Rank
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-level-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Level Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Level Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjacency-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjacency Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laplacian-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laplacian Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bag-of-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bag of Nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weisfeiler-lehman-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weisfeiler-Lehman Kernel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphlet-kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphlet Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-based-kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path-based Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphhopper-kernel-neural-message-passing-graph-convolutional-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphHopper kernel, Neural Message Passing, Graph Convolutional Networks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neighbourhood-overlap-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neighbourhood Overlap Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neighbourhood Overlap Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-overlap-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Overlap Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-overlap-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Overlap Measures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Engineering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <span class="md-tag">Machine Learning</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">Data Science</span>
+    
+  
+    
+    
+    
+      <span class="md-tag">Feature Engineering</span>
+    
+  
+</nav>
+
+
+
+  <h1>Feature Engineering</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before creating new feature research the domain and do some literature review</p>
+</div>
+<h2 id="handaling-different-data">Handaling different data<a class="headerlink" href="#handaling-different-data" title="Permanent link">&para;</a></h2>
+<h3 id="text-data">Text Data<a class="headerlink" href="#text-data" title="Permanent link">&para;</a></h3>
+<h4 id="text-processing">Text Processing<a class="headerlink" href="#text-processing" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Remove Html characters, punctuation</li>
+<li>Stop word removal</li>
+<li>Lower case conversion</li>
+<li>Stemming : <a href="https://www.nltk.org/_modules/nltk/stem/porter.html"> Porter Stemmer</a>, <a href="https://www.nltk.org/api/nltk.stem.snowball.html?highlight=snowball%20stemmer">Snowball Stemmer</a></li>
+<li>Lemmitizatiom : break a sentence into word  <a href="https://stackoverflow.com/questions/1787110/what-is-the-true-difference-between-lemmatization-vs-stemming">Ref1</a>, <a href="https://blog.bitext.com/what-is-the-difference-between-stemming-and-lemmatization/">Ref2</a> </li>
+</ul>
+<h4 id="text-to-vectors">Text to Vectors<a class="headerlink" href="#text-to-vectors" title="Permanent link">&para;</a></h4>
+<h5 id="bag-of-words-bow">Bag of Words (BOW)<a class="headerlink" href="#bag-of-words-bow" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Semantic meaning of word is lost</li>
+<li>Binary/Boolean BOW</li>
+<li>Count BOW</li>
+<li>Uni-gram/ Bi-gram/N-gram</li>
+</ul>
+<h5 id="tf-idf-term-frequency-inverse-documents-frequency">TF-IDF Term Frequency Inverse Documents Frequency<a class="headerlink" href="#tf-idf-term-frequency-inverse-documents-frequency" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Semantic meaning of word is lost <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfTransformer.html#sklearn.feature_extraction.text.TfidfTransformer">Ref1</a> <a href="https://towardsdatascience.com/tf-idf-for-document-ranking-from-scratch-in-python-on-real-world-dataset-796d339a4089">Ref2</a></li>
+</ul>
+<h5 id="word2vec">Word2Vec<a class="headerlink" href="#word2vec" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/">Ways to train a Word2Vec Dictionary</a>:  CBOW &amp; Skipgram</li>
+<li>CBOW predicts focus word given context words using an autoencoder model </li>
+<li>Skipgram predicts context word  given focus word using an autoencoder model with multiple softmax (=number of context words) (Computationally more expensive to train, but can work with smaller data and infrequent words)</li>
+<li>Algorithmic optimisations for Skipgram and CBOW<ul>
+<li>Hieraarchial Softmax - No of softmax needed = <span class="arithmatex">\(log_2(Vocab\  Size)\)</span></li>
+<li>Negatice Sampling - Update only a sample (based on frequency) of words including the target word</li>
+</ul>
+</li>
+<li>In Word2Vec or Avg Word2Vec, Semantic information is learned by the vector </li>
+<li>References : <a href="https://www.tensorflow.org/text/guide/word_embeddings">Word Embedding</a>  | <a href="https://www.tensorflow.org/tutorials/text/word2vec">Tensorflow Reference</a>  |  <a href="https://medium.com/analytics-vidhya/featurization-of-text-data-bow-tf-idf-avgw2v-tfidf-weighted-w2v-7a6c62e8b097">TFIDF Weighted Word2Vec</a></li>
+</ul>
+<h5 id="positional-embedding">Positional Embedding<a class="headerlink" href="#positional-embedding" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="https://kazemnejad.com/blog/transformer_architecture_positional_encoding/">Semantic and  information about the Position in a sentence is captured</a></li>
+<li><a href="https://keras.io/api/keras_nlp/layers/position_embedding/">Keras Position Embedding</a></li>
+<li>Transformers  : Absolute Or Relative <a href="https://theaisummer.com/positional-embeddings/#positional-encodings-vs-positional-embeddings">Positional Embedding</a></li>
+</ul>
+<h5 id="bert-distillbert">BERT &amp; DistillBERT<a class="headerlink" href="#bert-distillbert" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Can be used as replacement for word2vec</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Transformers are more efficient in parallel processing than LSTMs <a href="https://voidful.medium.com/why-transformer-faster-then-lstm-on-generation-c3f30977d747#:~:text=That's%20all%20for%20transformer%20model,neural%20network%20such%20as%20LSTM.">Reference 1</a>, <a href="https://ai.stackexchange.com/questions/20075/why-does-the-transformer-do-better-than-rnn-and-lstm-in-long-range-context-depen">Reference 2</a> </p>
+</div>
+<h3 id="categorical-data">Categorical Data<a class="headerlink" href="#categorical-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>One hot encoding</li>
+<li><a href="https://thierrymoudiki.github.io/blog/2020/04/24/python/r/misc/target-encoder-correlation">Mean value replacement or response coding </a></li>
+</ul>
+<h3 id="time-series-wave-form-data">Time Series &amp; Wave Form Data<a class="headerlink" href="#time-series-wave-form-data" title="Permanent link">&para;</a></h3>
+<h4 id="moving-window">Moving Window<a class="headerlink" href="#moving-window" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Within a Moving Window of width <span class="arithmatex">\(w\)</span> calculate mean, std dev, median, quantiles, max, min, max - min,  local minimas,  local maximas, zero crossing</li>
+</ul>
+<h4 id="fourier-transform">Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permanent link">&para;</a></h4>
+<p>Any repeating pattern with Amplitude <span class="arithmatex">\(A\)</span>, Time Period <span class="arithmatex">\(T\)</span>, Frequency <span class="arithmatex">\(F\)</span> and phase <span class="arithmatex">\(\phi\)</span> can be broken down as sum of sine and cosines waves.  Fourier Transform is used to convert a wave from <code>Time domain</code> to <code>Frequency domain</code> which is very insightful in repeating patterns</p>
+<p><a class="glightbox" href="../../../Assets/img/Oscillating_sine_wave.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Oscillating_sine_wave" src="../../../Assets/img/Oscillating_sine_wave.gif" /></a> <a class="glightbox" href="../../../Assets/img/FFT_Time_Frequency_View.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="FFT_Time_Frequency_View" src="../../../Assets/img/FFT_Time_Frequency_View.png" /></a></p>
+<h5 id="discrete-fourier-transform-dft">Discrete Fourier Transform (DFT)<a class="headerlink" href="#discrete-fourier-transform-dft" title="Permanent link">&para;</a></h5>
+<ol>
+<li>The <strong>input</strong> is a sequence of numbers of the original variable (<em>one value per time step</em>)</li>
+<li>The <strong>output</strong> is <em>one value of amplitude (or signal strength) for each frequency</em>. These are represented by the <strong>Fourier Coefficients</strong>.  </li>
+<li>This new series is computed using the Fourier formula:</li>
+</ol>
+<div class="arithmatex">\[X_k = \sum_{n=0}^{N-1} x_ne^{-2 \pi ikn/N}\]</div>
+<blockquote>
+<p>Now we obtain the frequencies that are present in the variable.  Each of the values in the outcome series is the strength of a specific frequency.  If the amplitude of a frequency is high, then that seasonality is important in the orginal time series (or waves). There exists an Computational optimized form of DFT called Fast Fourier Transform. It is computed using the <strong>Cooley-Tukey FFT algorithm.</strong></p>
+</blockquote>
+<h3 id="graph-data">Graph Data<a class="headerlink" href="#graph-data" title="Permanent link">&para;</a></h3>
+<h4 id="node-level-features">Node Level Features<a class="headerlink" href="#node-level-features" title="Permanent link">&para;</a></h4>
+<h5 id="node-indegree-and-node-outdegree">Node InDegree and Node OutDegree<a class="headerlink" href="#node-indegree-and-node-outdegree" title="Permanent link">&para;</a></h5>
+<h5 id="eigenvector-centrality">Eigenvector Centrality<a class="headerlink" href="#eigenvector-centrality" title="Permanent link">&para;</a></h5>
+<h5 id="clustering-coefficient">Clustering Coefficient<a class="headerlink" href="#clustering-coefficient" title="Permanent link">&para;</a></h5>
+<h5 id="deepwalk">DeepWalk<a class="headerlink" href="#deepwalk" title="Permanent link">&para;</a></h5>
+<h5 id="graph-coloring">Graph coloring<a class="headerlink" href="#graph-coloring" title="Permanent link">&para;</a></h5>
+<h5 id="hope">HOPE<a class="headerlink" href="#hope" title="Permanent link">&para;</a></h5>
+<h5 id="page-rank"><a href="https://en.wikipedia.org/wiki/PageRank">Page Rank</a><a class="headerlink" href="#page-rank" title="Permanent link">&para;</a></h5>
+<p>Adar Index
+Kartz Centrality
+Shortest Path
+Connected-component
+HITS Score</p>
+<h4 id="graph-level-features">Graph Level Features<a class="headerlink" href="#graph-level-features" title="Permanent link">&para;</a></h4>
+<h5 id="adjacency-matrix">Adjacency Matrix<a class="headerlink" href="#adjacency-matrix" title="Permanent link">&para;</a></h5>
+<h5 id="laplacian-matrix">Laplacian Matrix<a class="headerlink" href="#laplacian-matrix" title="Permanent link">&para;</a></h5>
+<h5 id="bag-of-nodes">Bag of Nodes<a class="headerlink" href="#bag-of-nodes" title="Permanent link">&para;</a></h5>
+<h5 id="weisfeiler-lehman-kernel">Weisfeiler-Lehman Kernel<a class="headerlink" href="#weisfeiler-lehman-kernel" title="Permanent link">&para;</a></h5>
+<h5 id="graphlet-kernels">Graphlet Kernels<a class="headerlink" href="#graphlet-kernels" title="Permanent link">&para;</a></h5>
+<h5 id="path-based-kernels">Path-based Kernels<a class="headerlink" href="#path-based-kernels" title="Permanent link">&para;</a></h5>
+<h5 id="graphhopper-kernel-neural-message-passing-graph-convolutional-networks"><a href="https://ysig.github.io/GraKeL/latest/kernels/graph_hopper.html">GraphHopper kernel</a>, <a href="https://arxiv.org/abs/1704.01212">Neural Message Passing</a>,  <a href="https://arxiv.org/abs/1609.02907">Graph Convolutional Networks</a><a class="headerlink" href="#graphhopper-kernel-neural-message-passing-graph-convolutional-networks" title="Permanent link">&para;</a></h5>
+<h4 id="neighbourhood-overlap-features">Neighbourhood Overlap Features<a class="headerlink" href="#neighbourhood-overlap-features" title="Permanent link">&para;</a></h4>
+<h5 id="local-overlap-measures">Local Overlap Measures<a class="headerlink" href="#local-overlap-measures" title="Permanent link">&para;</a></h5>
+<h5 id="global-overlap-measures">Global Overlap Measures<a class="headerlink" href="#global-overlap-measures" title="Permanent link">&para;</a></h5>
+<h5 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<h5 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<h5 id="_3"><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<h5 id="_4"><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<h3 id="sequence-data">Sequence Data<a class="headerlink" href="#sequence-data" title="Permanent link">&para;</a></h3>
+<h3 id="image-data">Image Data<a class="headerlink" href="#image-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Image_histogram">Colour Image Histogram</a> - <a href="https://www.geeksforgeeks.org/opencv-python-program-analyze-image-using-histogram/">Tutorial</a></li>
+<li><a href="https://kenndanielso.github.io/mlrefined/blog_posts/14_Convolutional_networks/14_2_Edge_histogram_based_features.html">Edge Histogams</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Haar-like_feature">Haar Features</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">SIFT Features</a> : Very useful in Image Search with properties like scale invariance and rotation invariance</li>
+</ul>
+<h3 id="graph-data_1">Graph Data<a class="headerlink" href="#graph-data_1" title="Permanent link">&para;</a></h3>
+<h2 id="feature-engineering">Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Feature Binning and Indicator variables <ul>
+<li>Depending on domain knowledge sometime it might be useful to convert real valued / categorical feature to bucketed/bined feature based on some rule</li>
+<li>To find the Binning thresholds / rule for a real valued variable <span class="arithmatex">\(X\)</span> train a decision tree using <span class="arithmatex">\(X\)</span> and target <span class="arithmatex">\(Y\)</span> and get the threshold from the decision trees (trained on entropy)</li>
+</ul>
+</li>
+<li>Interaction Variables : <ul>
+<li>Logical <span class="arithmatex">\(N\)</span> way Interaction between <span class="arithmatex">\(N\)</span> variables created using Decision Trees of Depth <span class="arithmatex">\(N\)</span></li>
+<li>Numerical <span class="arithmatex">\(N\)</span> way Interaction between <span class="arithmatex">\(N\)</span> variables created using Mathamteical Operations between these features</li>
+</ul>
+</li>
+<li>Feature Orthogonality : More orthogonal/different/uncorrelated features are better for learning a model</li>
+<li>Slicing Features : Features that help us divide the data into separate data generating process Eg: Device Feature : {Desktop, Mobile, Tablet} The way a customer would a product on mobile would be different and on computer would be different</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://pymotw.com/2/re/">Regular Expression Blog</a> </li>
+<li><a href="https://radimrehurek.com/gensim/auto_examples/index.html#documentation">Gensim</a></li>
+<li><a href="../../../Assets/pdf/Sliding_Window_Discrete_Fourier_Transform.pdf">Sliding Window Discrete Fourier Transform</a></li>
+<li><a href="https://kenndanielso.github.io/mlrefined/">https://kenndanielso.github.io/mlrefined/</a></li>
+</ol>
+<style>
+.md-typeset h1 {
+  color: Black;
+  margin: 0 0 0 0;
+  font-weight: bold;
+}
+.md-content__button {
+  display: none;
+}
+</style>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy Decide With ML Since 2022
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/harsh-maheshwari" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/harsh-maheshwari/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://medium.com/@harshmaheshwari3110" target="_blank" rel="noopener" title="medium.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.5 74.262C80.813 74.262 0 155.633 0 256s80.819 181.738 180.5 181.738S361 356.373 361 256 280.191 74.262 180.5 74.262m288.25 10.646c-49.845 0-90.245 76.619-90.245 171.095s40.406 171.1 90.251 171.1 90.251-76.619 90.251-171.1H559c0-94.503-40.4-171.095-90.248-171.095Zm139.506 17.821c-17.526 0-31.735 68.628-31.735 153.274s14.2 153.274 31.735 153.274S640 340.631 640 256c0-84.649-14.215-153.271-31.742-153.271Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+
+
+
+
+
+<h4>Analytical cookies</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our website and whether users find what they're searching for. With your consent, you're helping us to make our website better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+          
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "content.code.annotate", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.expand", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../../Assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

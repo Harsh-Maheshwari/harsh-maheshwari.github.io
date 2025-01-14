@@ -1,0 +1,2913 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="We are here to help you optimise the way you do business and scale your business to the globe using Quality Data, Machine Learning and Automation.">
+      
+      
+        <meta name="author" content="Harsh Maheshwari">
+      
+      
+        <link rel="canonical" href="https://harsh-maheshwari.github.io/Insights/Evolving%20Insights/2022-12-15%20Training%20a%20Neural%20Network/">
+      
+      
+        <link rel="prev" href="../2022-12-14%20Quick%20Steps%20Pipeline/">
+      
+      
+        <link rel="next" href="../2022-12-16%20Losses%20and%20Metrics%20In%20Machine%20Learning/">
+      
+      
+      <link rel="icon" href="../../../material/layers-triple-outline">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Training a Neural Network - Decide With ML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,700,700i%7CCascadia+Code+PL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Barlow";--md-code-font:"Cascadia Code PL"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../Assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-GHECGDQXX8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-GHECGDQXX8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-GHECGDQXX8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general-advice" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Decide With ML" class="md-header__button md-logo" aria-label="Decide With ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26zM12 14 3 7l9-7 9 7zm0-11.47L6.26 7 12 11.47 17.74 7zm0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Decide With ML
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Training a Neural Network
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://harsh-maheshwari.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Decide With ML
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Applied%20Solutions/Cancer%20Treatment/" class="md-tabs__link">
+          
+  
+    
+  
+  Applied Solutions
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../2022-12-14%20Quick%20Steps%20Pipeline/" class="md-tabs__link">
+          
+  
+    
+  
+  Insights
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Knowledge/" class="md-tabs__link">
+          
+  
+    
+  
+  Knowledge
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Decide With ML" class="md-nav__button md-logo" aria-label="Decide With ML" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 16.54 7.37-5.74L21 12.07l-9 7-9-7 1.62-1.26zM12 14 3 7l9-7 9 7zm0-11.47L6.26 7 12 11.47 17.74 7zm0 18.94 7.37-5.74L21 17l-9 7-9-7 1.62-1.26z"/></svg>
+
+    </a>
+    Decide With ML
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://harsh-maheshwari.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Decide With ML
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decide With ML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Applied Solutions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Applied Solutions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Cancer%20Treatment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cancer Treatment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Hydroponics%20Forecasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hydroponics Forecasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Quora%20Question%20Pairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quora Question Pairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Analysis and Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Analysis and Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Differentiation%20in%20TensorFlow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differentiation in TensorFlow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Dimensionality%20Reduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dimensionality Reduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Applied%20Solutions/Analysis%20and%20Guides/Scaling%20in%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scaling in Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Evolving Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Evolving Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-14%20Quick%20Steps%20Pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Steps Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Training a Neural Network
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Training a Neural Network
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      General advice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Engineering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-architechture-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Architechture Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Architechture Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-neurons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input neurons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-neurons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output neurons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hidden Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip Connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-of-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      No of Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weight-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weight Initialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weight Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-of-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem of Symmetry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-is-asymmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution is Asymmetry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vanishing-and-exploding-gradients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vanishing and Exploding Gradients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#norms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Norms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#early-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Stopping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dropout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-clipping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient Clipping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimisation-and-training-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimisation and Training Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimisation and Training Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimizers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-and-momentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Rate And Momentum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-epochs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of epochs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#losses-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Losses and Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Losses and Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#references-and-good-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      References and Good Articles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convnets" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvNets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConvNets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refernces-and-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refernces and Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-16%20Losses%20and%20Metrics%20In%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Losses and Metrics In Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-17%20Research%20Papers%2C%20Blogs%20%26%20Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research Papers, Blogs & Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-28%20Probablistic%20Data%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Probablistic Data Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-01%20%20Enhanced%20decision%20making%20using%20Probability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enhanced decision making using Probability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-11%20Learn%20One%20Thing%20At%20A%20Time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Learn One Thing At A Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-01-13%20Explainable%20AI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explainable AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Industry Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Industry Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Industry%20Insights/2022-01-01%20Banking%20Business/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Banking Business
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Industry%20Insights/2022-01-02%20Supply%20Chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supply Chain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Industry%20Insights/2022-01-03%20Product%20Analytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Industry%20Insights/2022-01-04%20Export%20Import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Industry%20Insights/2023-01-17%20Building%20Information%20Modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Information Modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Technical Insights
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Insights
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Technical%20Insights/2022-01-04%20SQL%20Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQL Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Technical%20Insights/2022-12-15%20Big%20Query%20Vs%20Tensorflow%20Transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Big Query Vs Tensorflow Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Technical%20Insights/2023-01-12%20Data%20Science%20Lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Science Lifecycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips & Tricks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips & Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/2022-01-02%20Jupyter%20Lab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jupyter Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/2022-01-03%20Obsidian%20Tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/2022-01-03%20Python%20Resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Good Python Libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/2022-01-04%20Pop%20Os%20Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pop Os Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips%20%26%20Tricks/2022-01-05%20Markdown%20Tricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Tricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Knowledge/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Knowledge
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Knowledge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2022-01-01%20Machine%20Learning%20Basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2022-01-02%20Linear%20Neural%20Networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2022-05-01%20Feature%20Engineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feature Engineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2022-12-31%20Support%20Vector%20Machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Support Vector Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2023-01-01%20Decision%20Trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decision Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2023-01-02%20Ensembles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ensembles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2023-01-03%20Clustering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clustering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/2023-01-11%20Useful%20Concepts%20in%20Machine%20Learning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Concepts in Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Machine%20Learning/Image%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Programming/2022-12-16%20Speed%20Up%20Your%20Python%20Code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Speed Up Your Python Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Knowledge/Programming/2022-12-17%20Data%20Structures%20%26%20Algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Structures & Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      General advice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Engineering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-architechture-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Architechture Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Architechture Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-neurons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input neurons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-neurons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output neurons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hidden-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hidden Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skip Connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-of-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      No of Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weight-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weight Initialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weight Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-of-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem of Symmetry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution-is-asymmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution is Asymmetry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vanishing-and-exploding-gradients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vanishing and Exploding Gradients
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#norms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Norms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#early-stopping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Stopping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dropout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-clipping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient Clipping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimisation-and-training-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimisation and Training Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimisation and Training Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimizers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimizers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-rate-and-momentum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Rate And Momentum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#number-of-epochs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of epochs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#losses-and-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Losses and Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Losses and Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#references-and-good-articles" class="md-nav__link">
+    <span class="md-ellipsis">
+      References and Good Articles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer Learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convnets" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConvNets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConvNets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refernces-and-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refernces and Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Training a Neural Network</h1>
+
+<h2 id="general-advice">General advice<a class="headerlink" href="#general-advice" title="Permanent link">&para;</a></h2>
+<p>General advice while training neural networks : </p>
+<ul>
+<li>Increase complexity one at a time and always provide a hypothesis on how should the model react to the said change in complexity. And verify if the hypothesis is True or False and why.</li>
+<li>Understand as many paterns as possible from the data using EDA and figure out which pattern is the model able to learn and why</li>
+<li>Before extensive experimentation get a complete pipeline executed for small data and small model.  The pipeline should be from getting raw data to finalising the techincal and business reports</li>
+<li>Set up a full training + evaluation + testing skeleton and gain trust in the pipeline execution via a series of experiments with explicit hypotheses, losses and metrics visualizations, model predictions. </li>
+</ul>
+<h2 id="data-decisions">Data Decisions<a class="headerlink" href="#data-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="feature-engineering">Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Select features and remove any that may contain patterns that won't generalize beyond the training set and cause overfitting</li>
+<li>Scaling your features: For faster convergence all  features should have a similar scale before using them as inputs to the neural network.  </li>
+</ul>
+<h2 id="network-architechture-decisions">Network Architechture Decisions<a class="headerlink" href="#network-architechture-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="input-neurons">Input neurons<a class="headerlink" href="#input-neurons" title="Permanent link">&para;</a></h3>
+<ul>
+<li>For tabular dataset input vector is a combination of one input neuron per feature, So the shape of the input vector is the number of features selected for training</li>
+<li>For images dataset input vector is the dimensions of your image</li>
+<li>For text dataset input vector is decided by the text to vector embedding</li>
+</ul>
+<h3 id="output-neurons">Output neurons<a class="headerlink" href="#output-neurons" title="Permanent link">&para;</a></h3>
+<p>Number of output neurons depends on the type and number of predictions
+- For single regression target this is a one value
+- For multi-variate regression, it is one neuron per predicted value, For bounding boxes we have 4 regression values one for each bounding box property : height, width, x-coordinate, y-coordinate
+- For binary classification we use one output neuron which represents the probability of the positive class. 
+- For multi class classification, we have one output neuron per class, and use the softmax activation function on the output layer to ensure the final probabilities sum to 1. </p>
+<h3 id="hidden-layers">Hidden Layers<a class="headerlink" href="#hidden-layers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No of hidden layers and no of nuerons per hidden layer: Decided by hit and trial, Start with either a too big or a too small network and adjust incrementally untill the model is neither overfitting nor underfitting.</li>
+<li>General Recommendation : Start with 1-5 layers and 1-100 neurons (same number of neurons for all hidden layers) and slowly adding more layers and neurons until you start overfitting. Usually we get more performance boost from adding more layers than adding more neurons in each layer.</li>
+<li>When chossing a smaller number of layers/neurons, the network will not be able to learn the underlying patterns in your data and thus be useless. An approach to counteract this is to start with a huge number of hidden layers and neurons and then use dropout and early stopping to let the neural network size itself down for you</li>
+<li>For many problems in image or speech domain there are pre-trained models (YOLO, ResNet, VGG) that allow you to use large parts of their networks, and train your model on top of these networks to learn only the higher order features. </li>
+<li>Manytimes having a large first layer and following it up with smaller layers will lead to better performance as the first layer can learn a lot of lower-level features that can feed into a few higher order features in the subsequent layers.</li>
+</ul>
+<h3 id="skip-connections">Skip Connections<a class="headerlink" href="#skip-connections" title="Permanent link">&para;</a></h3>
+<h3 id="no-of-parameters">No of Parameters<a class="headerlink" href="#no-of-parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Calculate the number of parameters in the model and compare with the number of data points you have. (Just keep the comparision in mind).   </li>
+</ul>
+<h3 id="activation-functions">Activation Functions<a class="headerlink" href="#activation-functions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://arxiv.org/pdf/1811.03378.pdf">Activation Functions: Comparison of Trends in Practice and Research for Deep Learning</a></li>
+<li>The performance from using different hidden layer activations improves in this order (from lowest→highest performing): logistic → tanh → ReLU → Leaky ReLU → ELU → SELU. </li>
+<li>ReLU is the most popular activation function , But  <a href="https://arxiv.org/pdf/1511.07289.pdf">ELU</a> or <a href="https://arxiv.org/pdf/1606.08415.pdf">GELU</a> are on the rise</li>
+<li>To combat specific problems:<ul>
+<li>RReLU : To combat neural network overfitting</li>
+<li>PReLU: For massive training sets</li>
+<li>leaky ReLU: Reduce latency at runtime and fast inference times</li>
+<li>ELU: If your network doesn't self-normalize</li>
+<li>SELU: For an overall robust activation function</li>
+</ul>
+</li>
+<li>Regression output actiation <ul>
+<li>softplus : For positive prediction </li>
+<li><em>scale</em>*tanh : For predictions in range  <em>-scale</em> and <em>scale</em></li>
+<li><em>scale</em>*sigmoid : For predictions in range  0 and <em>scale</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="weight-initialization">Weight Initialization<a class="headerlink" href="#weight-initialization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Weights should be small (not to small) (Normalisation)</li>
+<li>They should have good variance </li>
+</ul>
+<h4 id="problem-of-symmetry">Problem of Symmetry<a class="headerlink" href="#problem-of-symmetry" title="Permanent link">&para;</a></h4>
+<ul>
+<li>If all weights are zero then for any given nueron is <span class="arithmatex">\(w^Tx\)</span>  which would be 0, and all the weigths will have same gradient updates</li>
+<li>If all weights are one then for any given nueron is <span class="arithmatex">\(w^Tx\)</span>  which would be <span class="arithmatex">\(x\)</span>, and all the weigths will have same gradient updates</li>
+</ul>
+<h3 id="solution-is-asymmetry">Solution is Asymmetry<a class="headerlink" href="#solution-is-asymmetry" title="Permanent link">&para;</a></h3>
+<ul>
+<li>With different initialisation different models lear different things about the data</li>
+<li>When using softmax, logistic, or tanh, use <a href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf">Glorot initialization</a> Mostly default used in Tensorflow </li>
+<li>When using ReLU or leaky RELU, use <a href="https://arxiv.org/pdf/1502.01852.pdf">He initialization</a></li>
+<li>When using SELU or ELU, use <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">LeCun initialization</a></li>
+</ul>
+<h3 id="vanishing-and-exploding-gradients">Vanishing and Exploding Gradients<a class="headerlink" href="#vanishing-and-exploding-gradients" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Vanishing Gradients</strong> : when the backprop algorithm propagates the error gradient from the output layer to the first layers, the gradients get smaller and smaller until they're almost negligible when they reach the first layers. This means the weights of the first layers aren't updated significantly at each step.</li>
+<li><strong>Exploding Gradients</strong> : when the gradients for certain layers get progressively larger, leading to massive weight updates for some layers as opposed to the others</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Where in the network would you first see the vanishing gradient or exploding gradients problem? Ans: Initial layers of the network</p>
+</div>
+<h3 id="norms">Norms<a class="headerlink" href="#norms" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A small change in input mini batch distribution can be noticed as a very large change in deeper layers (due to chain of change formulation). This phenomenon / problem is called <strong>internal covariance shift</strong>. BatchNorm solves the issue of internal covariance shift. </li>
+<li><strong>BatchNorm</strong> simply learns the optimal means and scales of each layer's inputs. It does so by zero-centering and normalizing its input vectors, then scaling and shifting them. It also acts like a weak regularizer. Batch Norm is applied after calculating  <span class="arithmatex">\(w^Tx\)</span> and before applying the activation</li>
+<li>Using <strong>BatchNorm</strong> lets us use larger learning rates (which result in faster convergence) and lead to huge improvements in most neural networks by reducing the vanishing gradients problem. The only downside is that it slightly increases training times because of the extra computations required at each layer.</li>
+<li><a href="https://arxiv.org/pdf/1502.03167v3.pdf">Reference</a> </li>
+</ul>
+<h3 id="early-stopping">Early Stopping<a class="headerlink" href="#early-stopping" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Early Stopping</strong> lets you live it up by training a model with more hidden layers, hidden neurons and for more epochs than you need, and just stopping training when performance stops improving consecutively for n epochs. It also saves the best performing model for you.</li>
+</ul>
+<h3 id="dropout">Dropout<a class="headerlink" href="#dropout" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Dropout</strong> gives you a massive performance boost (~2% for state-of-the-art models). All dropout does is randomly turn off a percentage of neurons at each layer, at each training step. This makes the network more robust because it can't rely on any particular set of input neurons for making predictions. The knowledge is distributed amongst the whole network. </p>
+</li>
+<li>
+<p>In <strong>Dropout</strong> around 2^n (where n is the number of neurons in the architecture) slightly-unique neural networks are generated during the  training process, and ensembled together to make predictions.</p>
+</li>
+<li>
+<p>A good <strong>Dropout Rate</strong> is between 0.1 to 0.5; 0.3 for RNNs, and 0.5 for CNNs. Use larger rates for bigger layers. Increasing the dropout rate decreases overfitting, and decreasing the rate is helpful to combat under-fitting.</p>
+</li>
+<li>
+<p>Read <a href="https://arxiv.org/abs/1801.05134">Understanding the Disharmony between Dropout and Batch Normalization by Variance Shift</a> before using Dropout in conjunction with BatchNorm.</p>
+</li>
+</ul>
+<h3 id="gradient-clipping">Gradient Clipping<a class="headerlink" href="#gradient-clipping" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Gradient Clipping</strong> is a great way to reduce gradients from exploding, specially when training RNNs. Simply clip them when they exceed a certain value. Use clip_by_global_norm  instead of clipnorm or clipvalue, which allows you to keep the direction of your gradient vector consistent.</li>
+<li>
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/clip_by_value">tf.clip_by_value</a>  clips each value inside one tensor, regardless of the other values in the tensor. For instance,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Only the values below 0 or above 3 are changed</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_value</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="o">-&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<p>Consequently, it can change the direction of the tensor, so it should be used if the values in the tensor are decorrelated one from another (which is not the case for gradient clipping), or to avoid zero / infinite values in a tensor that could lead to Nan / infinite values elsewhere (by clipping with a minimum of epsilon=1e-8 and a very big max value for instance).</p>
+</li>
+<li>
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/clip_by_norm">tf.clip_by_norm</a> rescales one tensor if necessary, so that its L2 norm does not exceed a certain threshold. It's useful typically to avoid exploding gradient on one tensor, because you keep the gradient direction. For instance:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># The original L2 norm is 7, which is &gt;5, so the final one is 5</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_norm</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>  <span class="o">-&gt;</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="mi">7</span>  
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># The original L2 norm is 7, which is &lt;9, so it is left unchanged</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_norm</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="mi">9</span><span class="p">)</span>  <span class="o">-&gt;</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  
+</code></pre></div></p>
+<p>However, <code>clip_by_norm</code> works on only one gradient, so if you use it on all your gradient tensors, you'll unbalance them (some will be rescaled, others not, and not all with the same scale).</p>
+</li>
+<li>
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/clip_by_global_norm">tf.clip_by_global_norm</a> rescales a list of tensors so that the total norm of the vector of all their norms does not exceed a threshold. The goal is the same as  <code>clip_by_norm</code> (avoid exploding gradient, keep the gradient directions), but it works on all the gradients at once rather than on each one separately (that is, all of them are rescaled by the same factor if necessary, or none of them are rescaled). This is better, because the balance between the different gradients is maintained. For instance: 
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">tf</span><span class="o">.</span><span class="n">clip_by_global_norm</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">])]</span> <span class="p">,</span> <span class="mf">14.5</span><span class="p">)</span>
+</code></pre></div></p>
+<p>will rescale both tensors by a factor <code>14.5/sqrt(49 + 196)</code>, because the first tensor has a L2 norm of 7, the second one 14, and <code>sqrt(7^2+ 14^2)&gt;14.5</code></p>
+<p>Choosing the max value is the hardest part. You should use the biggest value such that you don't have exploding gradient (whose effects can be <code>Nan</code>s or <code>infinite</code> values appearing in your tensors, constant loss /accuracy after a few training steps). The value should be bigger for <code>tf.clip_by_global_norm</code> than for the others, since the global L2 norm will be mechanically bigger than the other ones due to the number of tensors implied.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that <code>tf.clip_by_value</code> and <code>tf.clip_by_norm</code>  work on only one tensor, while <code>tf.clip_by_global_norm</code> is used on a list of tensors.</p>
+</div>
+<h2 id="optimisation-and-training-decisions">Optimisation and Training Decisions<a class="headerlink" href="#optimisation-and-training-decisions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Follow the advices in <a href="https://deci.ai/blog/tricks-training-neural-networks/">https://deci.ai/blog/tricks-training-neural-networks/</a></li>
+</ul>
+<h3 id="optimizers">Optimizers<a class="headerlink" href="#optimizers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://ruder.io/optimizing-gradient-descent/">Blog : SebastianRuder optimization for Deep Learning</a> | <a href="https://www.slideshare.net/SebastianRuder/optimization-for-deep-learning">Lecture Notes</a></li>
+<li>Adagrad's main benefits is that it eliminates the need to manually tune the learning rate </li>
+<li><a href="https://paperswithcode.com/method/adam">Adaptive Moments Estimaion : Adam</a>/<a href="https://paperswithcode.com/method/nadam">Nadam</a> are usually good starting points, and tend to be quite forgiving to a bad learning late and other non-optimal hyperparameters.</li>
+<li>Use Stochastic Gradient Descent if you care deeply about quality of convergence and if time is not of the essence.</li>
+<li>If you care about time-to-convergence and a point close to optimal convergence will suffice, experiment with <a href="https://paperswithcode.com/method/adam">Adam</a>, Nadam, RMSProp, and Adamax optimizers</li>
+<li><a href="https://medium.datadriveninvestor.com/batch-vs-mini-batch-vs-stochastic-gradient-descent-with-code-examples-cd8232174e14">Batch vs Mini-batch vs Stochastic Gradient Descent</a>
+<a class="glightbox" href="../../../Assets/img/gradient_descent_vs_stochastic_vs_mini_batch.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="gradient_descent_vs_stochastic_vs_mini_batch" src="../../../Assets/img/gradient_descent_vs_stochastic_vs_mini_batch.png" /></a></li>
+<li>SGD can get stuck in a Saddle point,  Moment based indicators generally do better! <a href="https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html">Reference</a></li>
+<li><a class="glightbox" href="../../../Assets/img/optimisers_gif.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Assets/img/optimisers_gif.gif" /></a></li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ul>
+<li>Gradients of loss with respect to weights can be 0 for 3 points : Minima, Maxima and Saddle point! How do you know where you are? </li>
+<li>Why do sparse features need a different learning rate from dense features? And how Adagrad, Adadelta, RMSProp helps solve this? <a href="https://www.youtube.com/watch?v=c86mqhdmfL0&amp;ab_channel=AppliedAICourse">Reference</a></li>
+</ul>
+</div>
+<h3 id="batch-size">Batch Size<a class="headerlink" href="#batch-size" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Large batch sizes can be great because they can harness the power of GPUs to process more training instances per time. <a href="https://openai.com/blog/science-of-ai/">OpenAI has found</a> larger batch size (of tens of thousands for image-classification and language modeling, and of millions in the case of RL agents) serve well for scaling and parallelizability.</li>
+<li>According to <a href="https://arxiv.org/abs/1804.07612">this paper</a> by Masters and Luschi, the advantage gained from increased parallelism from running large batches is offset by the increased performance generalization and smaller memory footprint achieved by smaller batches. They show that increased batch sizes reduce the acceptable range of learning rates that provide stable convergence. Their takeaway is that smaller is, in-fact, better; and that the best performance is obtained by mini-batch sizes between 2 and 32.</li>
+<li>If you're not operating at massive scales, start with lower batch sizes and slowly increasing the size and monitoring performance to determine the best fit. </li>
+</ul>
+<h3 id="learning-rate-and-momentum">Learning Rate And Momentum<a class="headerlink" href="#learning-rate-and-momentum" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use a constant medium learning rate until you've trained all other hyper-parameters and implement learning rate decay scheduling at the end.</li>
+<li>Start with a very low values (10^-6) and increase by a factor of 10 until it reaches a very high value (e.g. 10). Measure your model performance (vs the log of your learning rate) to determine which rate served you well for your problem. </li>
+<li>The best learning rate is usually half of the learning rate that causes the model to diverge.</li>
+<li><a href="https://arxiv.org/abs/1506.01186">Learning Rate finder</a> method proposed by Leslie Smith. It an excellent way to find a good learning rate for most gradient optimizers (most variants of SGD) and works with most network architectures.</li>
+<li>With learning rate scheduling we can start with higher rates to move faster through gradient slopes, and slow it down when we reach a gradient valley in the hyper-parameter space which requires taking smaller steps.</li>
+<li>Gradient Descent takes tiny, consistent steps towards the local minima and when the gradients are tiny it can take a lot of time to converge. Momentum on the other hand takes into account the previous gradients, and accelerates convergence by pushing over valleys faster and avoiding local minima.</li>
+<li>In general you want your momentum value to be very close to one. 0.9 is a good place to start for smaller datasets, and you want to move progressively closer to one (0.999) the larger your dataset gets.</li>
+<li>Setting nesterov=True lets momentum take into account the gradient of the cost function a few steps ahead of the current point, which makes it slightly more accurate and faster.</li>
+</ul>
+<p><a class="glightbox" href="/Assets/img/learning rate vs epochs.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="/Assets/img/learning rate vs epochs.png" /></a></p>
+<h3 id="number-of-epochs">Number of epochs<a class="headerlink" href="#number-of-epochs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Start with a large number of epochs and use early stopping to halt training when performance stops improving.</li>
+</ul>
+<h3 id="losses-and-metrics">Losses and Metrics<a class="headerlink" href="#losses-and-metrics" title="Permanent link">&para;</a></h3>
+<p>Checkout the insight in <a href="/Insights/Evolving Insights/2022-12-16 Losses and Metrics In Machine Learning">Losses and Metrics</a></p>
+<h5 id="references-and-good-articles">References and Good Articles<a class="headerlink" href="#references-and-good-articles" title="Permanent link">&para;</a></h5>
+<ul>
+<li><a href="http://karpathy.github.io/2019/04/25/recipe/">Andrej Karpathy's guide</a> </li>
+<li><a href="https://arxiv.org/pdf/1905.11946.pdf">EfficientNets</a></li>
+<li><a href="https://arxiv.org/pdf/1803.09820.pdf">A DISCIPLINED APPROACH TO NEURAL NETWORK HYPER-PARAMETERS</a> </li>
+<li><a href="https://jithinjk.github.io/blog/disciplined_nn_approach.md.html">Blog</a>  </li>
+<li><a href="https://arxiv.org/abs/1803.05407">Stochastic Weight Averaging</a> </li>
+<li><a href="https://arxiv.org/pdf/1211.5063.pdf">On the difficulty of training Recurrent Neural Networks</a></li>
+<li><a href="https://www.kaggle.com/code/lavanyashukla01/training-a-neural-network-start-here/notebook">kaggle</a></li>
+<li><a href="https://stackoverflow.com/questions/44796793/difference-between-tf-clip-by-value-and-tf-clip-by-global-norm-for-rnns-and-how">Stack Overflow Discussion</a></li>
+<li><a href="https://cs231n.github.io/neural-networks-3/">Images</a></li>
+<li><a href="https://towardsdatascience.com/how-do-we-train-neural-networks-edd985562b73">Gradient Descent</a> | <a href="https://towardsdatascience.com/stochastic-gradient-descent-with-momentum-a84097641a5d">Denoise gradients using Exponential smoothing : Stochastic Gradient Descent with momentum</a></li>
+</ul>
+<h2 id="transfer-learning">Transfer Learning<a class="headerlink" href="#transfer-learning" title="Permanent link">&para;</a></h2>
+<ol>
+<li>If new data is very similar to previous data then : Don't fine tune anything : Use the pre trained model weights as feature engineering tool</li>
+<li>If new data is medium size and similar to previous data then : Fine tune the the a few last layers of the model with small learning </li>
+<li>If new data is large size and similar/dis-similar to previous data then : Fine tune the the complete model equivalently use the pre trained model weights as initialisation for the new model</li>
+<li><a href="https://cs231n.github.io/transfer-learning/">Transfer Learning</a></li>
+</ol>
+<h2 id="convnets">ConvNets<a class="headerlink" href="#convnets" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Padding : Zero Padding (popular) Vs Same value padding (Not used very much)</li>
+<li>Output dimension formula for Input Image of size <span class="arithmatex">\(N \times N\)</span>, with padding <span class="arithmatex">\(P\)</span> and stride <span class="arithmatex">\(S\)</span>  is <span class="arithmatex">\(floor(\frac{N-2+2P}{S}) + 1\)</span></li>
+<li><a href="https://medium.com/@zurister/depth-wise-convolution-and-depth-wise-separable-convolution-37346565d4ec">Depth-wise Convolution and Depth-wise Separable Convolution</a></li>
+<li>Data Augmentation : Improve types and quantity of Invariance (shift, rotation, zoom, shear, noise)  </li>
+<li>Max Pooling Subsampaling is used to solve these problems<ul>
+<li>Location Invariance</li>
+<li>Scale Invariance</li>
+<li>Rotation Invariance</li>
+</ul>
+</li>
+</ol>
+<div class="admonition questions annotate">
+<p class="admonition-title">Should the kerenel width and number of kernels increase or decrease as depth increases in CNNs ?</p>
+<ul>
+<li>In general keep the feature space wide (smaller size of filters <code>mxn</code>) and shallow (low number of filters) in the initial stages of the network,  and then make it narrower (bigger size of filters <code>mxn</code>) and deeper (high number of filters) towards the end.</li>
+<li>We want initial layers to learn simple features like edge detectors etc. There are a limited number of such features. Hence the low number of filters in the beginning.</li>
+<li>Each of the filters in the previous layers can be combined in exponential number of ways to detect complex patterns. For example, if previous layer has 4 filters, then next layer can learn to combine them in 2^n = 16 different ways.</li>
+<li>Not all of those ways will be exhaustively needed, so a rough rule of thumb is to double the number of filters as you increase layers because the number of complex patterns will be exponentially more than number of simple patterns to learn.</li>
+</ul>
+</div>
+<h3 id="refernces-and-questions">Refernces and Questions<a class="headerlink" href="#refernces-and-questions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>In CNNs, how we can be sure that all kernals are not learning same thing? (Ans: Random Initialisation)</li>
+<li><a href="https://ai-scholar.tech/en/articles/treatise/large_kernel">large_kernel</a></li>
+<li><a href="https://www.slideshare.net/kuwajima/cnnbp">Cnn ppt</a></li>
+<li><a href="http://www.iro.umontreal.ca/~bengioy/talks/DL-Tutorial-NIPS2015.pdf">DL-Tutorial-NIPS2015</a></li>
+<li><a href="http://cs231n.stanford.edu/">cs231n Stanford CNN course</a></li>
+<li><a href="http://ufldl.stanford.edu/tutorial/supervised/ConvolutionalNeuralNetwork/">ConvolutionalNeuralNetwork</a></li>
+<li><a href="https://www.kaggle.com/code/blurredmachine/lenet-architecture-a-complete-guide/notebook">LeNet</a></li>
+<li><a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf">AlexNet paper</a>, <a href="https://i0.wp.com/ramok.tech/wp-content/uploads/2017/12/2017-12-31_01h31_40.jpg">AlexNet image</a></li>
+<li><a href="https://arxiv.org/pdf/1512.03385.pdf">ResNet</a> : x -&gt; Conv -&gt; Relu -&gt; Conv -&gt; x1 || &larr;+ x || -&gt; Relu</li>
+<li><a href="https://arxiv.org/pdf/1512.00567.pdf">InceptionNet</a> : Multple kernel output concatenations using 1x1 convolution hack</li>
+<li><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">LSTMs</a> | <a href="https://www.youtube.com/watch?v=l5TAISVlYM0&amp;ab_channel=AppliedAICourse">LSTMs No of Parameters</a> | <a href="https://www.slideshare.net/hytae/recent-progress-in-rnn-and-nlp-63762080">GRU_1</a>  | <a href="https://towardsdatascience.com/understanding-gru-networks-2ef37df6c9be">GRU_2</a></li>
+<li>Why is padding done in LSTMs ? (To run the Optimisation on a batch and not on single example)</li>
+</ul>
+<style>
+.md-typeset h1 {
+  color: Black;
+  margin: 0 0 0 0;
+  font-weight: bold;
+}
+.md-content__button {
+  display: none;
+}
+</style>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy Decide With ML Since 2022
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/harsh-maheshwari" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/harsh-maheshwari/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://medium.com/@harshmaheshwari3110" target="_blank" rel="noopener" title="medium.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.5 74.262C80.813 74.262 0 155.633 0 256s80.819 181.738 180.5 181.738S361 356.373 361 256 280.191 74.262 180.5 74.262m288.25 10.646c-49.845 0-90.245 76.619-90.245 171.095s40.406 171.1 90.251 171.1 90.251-76.619 90.251-171.1H559c0-94.503-40.4-171.095-90.248-171.095Zm139.506 17.821c-17.526 0-31.735 68.628-31.735 153.274s14.2 153.274 31.735 153.274S640 340.631 640 256c0-84.649-14.215-153.271-31.742-153.271Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+
+
+
+
+
+<h4>Analytical cookies</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our website and whether users find what they're searching for. With your consent, you're helping us to make our website better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+          
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link", "content.code.annotate", "content.tooltips", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.expand", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../../Assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
